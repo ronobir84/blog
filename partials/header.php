@@ -1,3 +1,21 @@
+<?php
+
+$page = basename($_SERVER['PHP_SELF'], '.php');
+
+
+
+
+
+
+
+
+
+
+?>
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,7 +31,7 @@
 
 <body>
 
-    <nav class="bg-white w-full h-[85px] border-gray-200 dark:bg-gray-900">
+    <nav class="bg-white w-full h-[85px] border-gray-200 dark:bg-gray-900 fixed z-10 hidden">
         <div class="flex flex-wrap justify-between py-5 px-[70px]">
             <div class="flex gap-14">
                 <a href="https://flowbite.com" class="flex items-center   ">
@@ -23,7 +41,7 @@
                 <div>
                     <ul class="flex gap-7">
                         <li>
-                            <a class="" href="">
+                            <a class="" href="index.php">
                                 <button class=" px-6 py-2 text-lg font-semibold text-white bg-gray-800 hover:bg-gray-700 focus:outline-none focus:bg-gray-700">Home</button>
                             </a>
                         </li>
@@ -31,7 +49,7 @@
                         <li>
                             <div class="relative inline-block text-left">
                                 <div class="group">
-                                    <button type="button" class="inline-flex justify-center items-center w-full     font- text-lg  font-semibold  bg-gray-800 hover:bg-gray-700 focus:outline-none focus:bg-gray-700 px-5 py-2 text-white ">
+                                    <button type="button" class="inline-flex justify-center items-center w-full  text-lg  font-semibold  bg-gray-800 hover:bg-gray-700    px-5 py-2 text-white ">
                                         Categories
                                         <!-- Dropdown arrow -->
                                         <svg class="w-6 h-6 ml-1 mt-[6px]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
@@ -50,6 +68,12 @@
                                 </div>
                         </li>
 
+                        <li>
+                            <a class="" href="Login.php">
+                                <button class=" px-6 py-2 text-lg font-semibold text-white bg-gray-800 hover:bg-gray-700 focus:outline-none focus:bg-gray-700 ">Login</button>
+                            </a>
+                        </li>
+
 
                     </ul>
                 </div>
@@ -61,7 +85,7 @@
 
             <div class="flex items-center space-x-6 rtl:space-x-reverse">
                 <div>
-                    <input class="bg-slate-50  0 font-mono  ring-zinc-400    outline-none duration-300 placeholder:text-zinc-600 placeholder:opacity-50 rounded-sm px-8 py-3 shadow-md focus:shadow-lg  border-2 border-sky-500   " placeholder="Search" name="text" type="search" />
+                    <input class="bg-slate-50   font-mono  ring-zinc-400    outline-none duration-300 placeholder:text-zinc-600 placeholder:opacity-50 rounded-sm px-8 py-3 shadow-md focus:shadow-lg  border-2 border-sky-500   " placeholder="Search" name="text" type="search" />
 
                 </div>
                 <div>

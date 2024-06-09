@@ -11,9 +11,7 @@ if (!$config) {
     die("connection is undefined" . mysqli_connect_errno());
 } 
 
-else{
-    echo "Connection Success full";
-}
+
 
 
 
