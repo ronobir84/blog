@@ -1,22 +1,28 @@
-<?php include "./partials/header.php" ?>
+<?php session_start(); ?>
+
+
+<?php include "./partials/header.php"; ?>
 
 
 <?php
 include "config.php";
 
 if (isset($_POST['login'])) {
-    $email = mysqli_real_escape_string($config , $_POST['email']);
-    $password = mysqli_real_escape_string($config, $_POST['password']);
+    $email = mysqli_real_escape_string($config, $_POST['email']);
+    $password = mysqli_real_escape_string($config, sha1($_POST['password']));
     $sql = "SELECT * FROM user WHERE email='{$email}' AND password='{$password}'";
     $query = mysqli_query($config, $sql);
     $date = mysqli_num_rows($query);
     if ($date) {
-        echo "Login";
-    }else{
-        echo "invalid email/password";
+        $result = mysqli_fetch_assoc($query);
+        echo "<script>window.location.href='admin.php'</script>";
+         
+    } else {
+
+        $_SESSION['error'] = 'Invalid Email/Password!!';
+        "<script>window.location.href='Login.php'</script>";
     }
-    
-} 
+}
 
 
 ?>
@@ -24,9 +30,23 @@ if (isset($_POST['login'])) {
 
 <div>
     <div class="w-[60%] bg-gray-500 h-[90%] absolute right-[20%] top-20">
-         
-        <div class=" mt-16">
+
+        <div class=" mt-20">
             <div class="w-[600px] h-[550px] bg-gray-800 mx-auto  absolute right-[21%]   px-10 pt-16">
+
+
+                <?php
+                if (isset($_SESSION['error'])) {
+                    $error = $_SESSION['error'];
+                    echo "<p class='text-xl text-red-700 font-semibold relative top- text-center'>" . $error . "</p>";
+                    unset($_SESSION['error']);
+                }
+
+                
+
+
+                ?>
+
                 <h2 class="text-3xl relative top-10 font-bold  mb-10 text-center from-purple-400 via-pink-400 to-blue-400 bg-gradient-to-r bg-clip-text text-transparent uppercase">Login</h2>
 
                 <form method="POST" action="" class="flex flex-col pt-16">
@@ -45,4 +65,4 @@ if (isset($_POST['login'])) {
 </div>
 
 
-<?php include "./partials/footer.php";?>
+<?php include "./partials/footer.php"; ?>

@@ -1,40 +1,18 @@
-<?php
-
-$page = basename($_SERVER['PHP_SELF'], '.php');
-
-
-
-
-
-
-
-
-
-
-?>
-
-
-
-
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
-
-
 </head>
-
 <body>
 
-    <nav class="bg-white w-full h-[85px] border-gray-200 dark:bg-gray-900 fixed z-10 hidden">
+    <nav class="bg-white w-full h-[85px] border-gray-200 dark:bg-gray-900 fixed z-10 ">
         <div class="flex flex-wrap justify-between py-5 px-[70px]">
             <div class="flex gap-14">
-                <a href="https://flowbite.com" class="flex items-center   ">
+                <a href="https://flowbite.com" class="flex items-center">
                     <h1 class="text-4xl   font-bold   from-purple-400 via-pink-400 to-blue-400 bg-gradient-to-r bg-clip-text text-transparent uppercase relative bottom-1">Blog</h1>
                 </a>
 
