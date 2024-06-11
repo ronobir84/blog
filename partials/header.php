@@ -9,7 +9,7 @@
 </head>
 <body>
 
-    <nav class="  w-full h-[85px] border-gray-200 dark:bg-gray-900 fixed z-10  shadow-md">
+    <nav class="  w-full h-[85px] border-gray-200 dark:bg-gray-900 fixed z-10  shadow-md ">
         <div class="flex flex-wrap justify-between py-5 px-[70px]">
             <div class="flex gap-14">
                 <a href=" " class="flex items-center">
@@ -63,11 +63,11 @@
 
             <div class="flex items-center space-x-6 rtl:space-x-reverse">
                 <div>
-                    <input class="bg-slate-50   font-mono  ring-zinc-400    outline-none duration-300 placeholder:text-zinc-600 placeholder:opacity-50 rounded-sm px-8 py-3 shadow-md focus:shadow-lg  border-2 border-sky-500   " placeholder="Search" name="text" type="search" />
+                    <input class="bg-slate-50   font-mono  ring-zinc-400     duration-300 placeholder:text-zinc-600 placeholder:opacity-50 rounded-sm px-8 py-3 shadow-md focus:shadow-lg  border-2 border-purple-500     " placeholder="Search" name="text" type="search" />
 
                 </div>
                 <div>
-                    <div class=" relative right-[24.4px] bg-transparent items-center justify-center flex border-2 border-sky-500  hover:bg-sky-500 text-sky-500 hover:text-white duration-300 cursor-pointer active:scale-[0.98]">
+                    <div class=" relative right-[24.4px] bg-transparent items-center justify-center flex border-2 border-purple-500  hover:bg-purple-500 text-purple-500 hover:text-white duration-300 cursor-pointer active:scale-[0.98]">
                         <button class="px-6 py-3"><a class="" href="">Search</a></button>
                     </div>
 

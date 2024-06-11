@@ -1,9 +1,13 @@
 <?php session_start() ?>
 
 <?php
-include "./config.php";
+include "../config.php";
 
 
+if (!isset($_SESSION['user_data'])) {
+    // echo "<script>window.location.href='http://localhost/Blog/Login.php'</script>";
+    header("location:http://localhost/Blog/Login.php");
+}
 
 ?>
 
@@ -31,7 +35,7 @@ include "./config.php";
     <!-- Page Wrapper -->
     <div id="wrapper">
         <!-- Sidebar -->
-        <ul class="   bg-[#111827] w-80 min-h-screen shadow" id="">
+        <ul class="   bg-[#111827] w-80 min-h-screen shadow-md" id="">
             <!-- Sidebar - Brand -->
             <a href=" " class="text-center">
                 <h1 class="text-4xl   font-bold   from-purple-400 via-pink-400 to-blue-400 bg-gradient-to-r bg-clip-text text-transparent uppercase relative top-3">Blog</h1>
@@ -40,17 +44,17 @@ include "./config.php";
             <div class="relative top-24 space-y-8">
 
                 <a class="" href="">
-                    <li class=" text-xl text-white font-semibold w-full h-12 hover:duration-500   px-4 py-[9px]  hover:bg-gray-400 ">
+                    <li class=" text-xl text-white font-semibold w-full h-12 duration-300 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white   px-4 py-[9px]  ">
                         Blogs
                     </li>
                 </a>
                 <a class="" href="">
-                    <li class=" text-xl text-white font-semibold w-full h-12 hover:duration-500   px-4 py-[9px]  hover:bg-gray-400 mt-7">
+                    <li class=" text-xl text-white font-semibold w-full h-12 duration-300 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white   px-4 py-[9px]  mt-7">
                         Users
                     </li>
                 </a>
                 <a class="" href="">
-                    <li class=" text-xl text-white font-semibold w-full h-12 hover:duration-500   px-4 py-[9px]  hover:bg-gray-400 mt-7">
+                    <li class=" text-xl text-white font-semibold w-full h-12 duration-300 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white   px-4 py-[9px]  mt-7">
                         Categories
                     </li>
 
@@ -64,7 +68,7 @@ include "./config.php";
             <!-- Main Content -->
             <div id="content">
                 <!-- Topbar -->
-                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+                <nav class="navbar navbar-expand navbar-light bg-[#111827] topbar mb-4 static-top shadow-md">
                     <!-- Sidebar Toggle (Topbar) -->
                     <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3"> <i class="fa fa-bars"></i> </button>
                     <!-- Topbar Navbar -->
@@ -87,7 +91,7 @@ include "./config.php";
                         <li>
                             <!-- 1 -->
                             <div class="flex gap-3 items-center">
-                                <h3 class="text-lg text-blue-700 font-semibold">
+                                <h3 class="text-lg text-white font-semibold">
 
                                     <?php
                                     if (isset($_SESSION['user_data'])) {
@@ -105,9 +109,9 @@ include "./config.php";
                             </div>
 
                             <!-- Dropdown menu -->
-                            <div id="dropdownAvatar" class="z-10 hidden bg-white    divide-gray-100  shadow w-44 h-40">
+                            <div id="dropdownAvatar" class="z-10 hidden bg-[#111827]   divide-gray-100  shadow-md w-44 h-40">
 
-                                <ul class="py-3   text-lg text-gray-700 dark:text-gray-200">
+                                <ul class="py-3  font-semibold text-lg text-white">
                                     <li>
                                         <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Profile</a>
                                     </li>
@@ -115,7 +119,7 @@ include "./config.php";
                                         <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Settings</a>
                                     </li>
                                     <li>
-                                        <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Logout</a>
+                                        <a href="logout.php" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Logout</a>
                                     </li>
                                 </ul>
 
