@@ -2,10 +2,11 @@
 
 
 <?php include "./partials/header.php"; ?>
-
+i
 
 <?php
 include "config.php";
+ 
 
 if (isset($_POST['login'])) {
     $email = mysqli_real_escape_string($config, $_POST['email']);
@@ -15,7 +16,9 @@ if (isset($_POST['login'])) {
     $date = mysqli_num_rows($query);
     if ($date) {
         $result = mysqli_fetch_assoc($query);
-        echo "<script>window.location.href='admin.php'</script>";
+        $user_date = array($result['user_id'], $result['username'], $result['role']);
+        $_SESSION['user_data'] = $user_date;
+        echo "<script>window.location.href='./admin/index.php'</script>";
          
     } else {
 

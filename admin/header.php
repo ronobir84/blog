@@ -1,0 +1,127 @@
+<?php session_start() ?>
+
+<?php
+include "./config.php";
+
+
+
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Blog Admin - Dashboard</title>
+    <!-- Custom fonts for this template-->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    <!-- Custom styles for this template-->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
+    <link href="vendor/css/sb-admin-2.css" rel="stylesheet">
+</head>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+<body id="page-top">
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+        <!-- Sidebar -->
+        <ul class="   bg-[#111827] w-80 min-h-screen shadow" id="">
+            <!-- Sidebar - Brand -->
+            <a href=" " class="text-center">
+                <h1 class="text-4xl   font-bold   from-purple-400 via-pink-400 to-blue-400 bg-gradient-to-r bg-clip-text text-transparent uppercase relative top-3">Blog</h1>
+            </a>
+
+            <div class="relative top-24 space-y-8">
+
+                <a class="" href="">
+                    <li class=" text-xl text-white font-semibold w-full h-12 hover:duration-500   px-4 py-[9px]  hover:bg-gray-400 ">
+                        Blogs
+                    </li>
+                </a>
+                <a class="" href="">
+                    <li class=" text-xl text-white font-semibold w-full h-12 hover:duration-500   px-4 py-[9px]  hover:bg-gray-400 mt-7">
+                        Users
+                    </li>
+                </a>
+                <a class="" href="">
+                    <li class=" text-xl text-white font-semibold w-full h-12 hover:duration-500   px-4 py-[9px]  hover:bg-gray-400 mt-7">
+                        Categories
+                    </li>
+
+                </a>
+
+            </div>
+        </ul>
+        <!-- End of Sidebar -->
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
+            <!-- Main Content -->
+            <div id="content">
+                <!-- Topbar -->
+                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+                    <!-- Sidebar Toggle (Topbar) -->
+                    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3"> <i class="fa fa-bars"></i> </button>
+                    <!-- Topbar Navbar -->
+                    <ul class="navbar-nav ml-auto">
+                        <!-- Nav Item - Search Dropdown (Visible Only XS) -->
+                        <li class="nav-item dropdown no-arrow d-sm-none">
+                            <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="fas fa-search fa-fw"></i> </a>
+                            <!-- Dropdown - Messages -->
+                            <div class="dropdown-menu dropdown-menu-right p-3 shadow +animated--grow-in" aria-labelledby="searchDropdown">
+                                <form class="form-inline mr-auto w-100 navbar-search">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+                                        <div class="input-group-append">
+                                            <button class="btn btn-primary" type="button"> <i class="fas fa-search fa-sm"></i> </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </li>
+                        <li>
+                            <!-- 1 -->
+                            <div class="flex gap-3 items-center">
+                                <h3 class="text-lg text-blue-700 font-semibold">
+
+                                    <?php
+                                    if (isset($_SESSION['user_data'])) {
+                                        echo $_SESSION['user_data']['1'];
+                                    }
+
+
+
+
+                                    ?>
+                                </h3>
+                                <button id="dropdownUserAvatarButton" data-dropdown-toggle="dropdownAvatar" class="flex text-sm bg-gray-800 rounded-full md:me-0 " type="button">
+                                    <img class="w-12 h-12 rounded-full " src="https://i.ibb.co/98W6xRQ/new.png" alt="">
+                                </button>
+                            </div>
+
+                            <!-- Dropdown menu -->
+                            <div id="dropdownAvatar" class="z-10 hidden bg-white    divide-gray-100  shadow w-44 h-40">
+
+                                <ul class="py-3   text-lg text-gray-700 dark:text-gray-200">
+                                    <li>
+                                        <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Profile</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Settings</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Logout</a>
+                                    </li>
+                                </ul>
+
+                            </div>
+                            <!-- 2 -->
+                        </li>
+                    </ul>
+                </nav>
+                <!-- End header -->

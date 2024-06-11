@@ -9,10 +9,10 @@
 </head>
 <body>
 
-    <nav class="bg-white w-full h-[85px] border-gray-200 dark:bg-gray-900 fixed z-10 ">
+    <nav class="  w-full h-[85px] border-gray-200 dark:bg-gray-900 fixed z-10  shadow-md">
         <div class="flex flex-wrap justify-between py-5 px-[70px]">
             <div class="flex gap-14">
-                <a href="https://flowbite.com" class="flex items-center">
+                <a href=" " class="flex items-center">
                     <h1 class="text-4xl   font-bold   from-purple-400 via-pink-400 to-blue-400 bg-gradient-to-r bg-clip-text text-transparent uppercase relative bottom-1">Blog</h1>
                 </a>
 
