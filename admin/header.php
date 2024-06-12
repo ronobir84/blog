@@ -5,8 +5,8 @@ include "../config.php";
 
 
 if (!isset($_SESSION['user_data'])) {
-    // echo "<script>window.location.href='http://localhost/Blog/Login.php'</script>";
-    header("location:http://localhost/Blog/Login.php");
+    echo "<script>window.location.href='http://localhost/Blog/Login.php'</script>";
+    // header("location:http://localhost/Blog/Login.php");
 }
 
 ?>
@@ -23,7 +23,7 @@ if (!isset($_SESSION['user_data'])) {
     <title>Blog Admin - Dashboard</title>
     <!-- Custom fonts for this template-->
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
     <!-- Custom styles for this template-->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
@@ -45,7 +45,8 @@ if (!isset($_SESSION['user_data'])) {
 
                 <a class="" href="">
                     <li class=" text-xl text-white font-semibold w-full h-12 duration-300 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white   px-4 py-[9px]  ">
-                        Blogs
+
+                        <span> Blogs</span>
                     </li>
                 </a>
                 <a class="" href="">
@@ -53,7 +54,7 @@ if (!isset($_SESSION['user_data'])) {
                         Users
                     </li>
                 </a>
-                <a class="" href="">
+                <a class="" href="categories.php">
                     <li class=" text-xl text-white font-semibold w-full h-12 duration-300 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white   px-4 py-[9px]  mt-7">
                         Categories
                     </li>

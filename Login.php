@@ -1,11 +1,18 @@
-<?php session_start(); ?>
+<?php session_start();
+
+if (isset($_SESSION['user_data'])) {
+    echo "<script>window.location.href='http://localhost/Blog/admin/index.php'</script>";
+    // header("location:http://localhost/Blog/admin/index.php");
+}
+?>
 
 
 <?php include "./partials/header.php"; ?>
-i
 
 <?php
 include "config.php";
+
+
  
  
 
