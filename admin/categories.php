@@ -1,8 +1,11 @@
-<?php include "header.php" ?>
+<?php include "header.php";
+
+?>
 <!-- Begin Page Content -->
 <div class="container-fluid">
     <!-- Page Heading -->
     <h5 class="mb-2 text-black text-lg font-semibold">Categories</h5>
+
     <!-- DataTales Example -->
     <div class="card shadow">
         <div class="card-header py-3 d-flex justify-content-between">
@@ -20,7 +23,21 @@
 
                 </a>
             </div>
+
             <div>
+                <?php
+                if (isset($_SESSION['error_msg'])) {
+                    $message = $_SESSION['error_msg'];
+                    echo "<span class='text-xl font-semibold text-green-700 relative left-[20%] top-2'>$message</span>";
+                    unset($_SESSION['error_msg']);
+                }
+
+
+                ?>
+            </div>
+
+            <div>
+
                 <form class="navbar-search">
                     <div class="flex items-center space-x-6 rtl:space-x-reverse">
                         <div>
@@ -65,19 +82,31 @@
                                 <tr class="">
                                     <td class=" text-lg text-black font-semibold"><?php echo $row['cat_id'] ?></td>
                                     <td class="text-lg text-black font-semibold"><?php echo $row['cat_name'] ?></td>
-                                    <td class="">
-                                        <a href="">
-                                            <i class="fa-solid fa-user-pen text-lg  w-12 h-12  p-2  duration-500 hover:bg-purple-500 border-2 border-purple-500 hover:text-white  text-purple-500 rounded-full"></i>
-                                        </a>
-                                        <a href="" class="ml-2 ">
-                                            <i class="fa-solid fa-trash text-lg  w-12 h-12  p-2  duration-500 hover:bg-red-700 border-2 border-red-700 hover:text-white  text-red-700 rounded-full"></i>
-                                        </a>
+                                    <td class=" ">
+
+                                        <form action="" method="post" onsubmit="return confirm('Are You Sure You want to delete?')">
+                                            <a class="relative right-3" href="">
+                                                <i class="fa-solid fa-user-pen text-lg  w-12 h-12  p-2  duration-500 hover:bg-purple-500 border-2 border-purple-500 hover:text-white  text-purple-500 rounded-full"></i>
+                                            </a>
+                                            <input name="catId" value="<?php echo $row['cat_id'] ?>" type="hidden">
+
+                                            <button class="" name="deleteCat" value="delete"> <i class="fa-solid fa-trash text-lg  w-12 h-12  p-2  duration-500 hover:bg-red-700 border-2 border-red-700 hover:text-white  text-red-700 rounded-full"></i></button>
+
+                                        </form>
                                     </td>
                                 </tr>
 
 
-                        <?php
+                            <?php
                             }
+                        } else {
+                            ?>
+
+                            <tr>
+                                <td colspan="4">No Record Found</td>
+                            </tr>
+
+                        <?php
                         }
                         ?>
                     </tbody>
@@ -88,5 +117,23 @@
 </div>
 <!-- /.container-fluid -->
 </div>
+
+<?php
+include "../config.php";
+ob_start();
+
+if (isset($_POST['deleteCat'])) {
+    $id = $_POST['catId'];
+    $delete = "DELETE FROM categories WHERE cat_id = '$id'";
+    $run = mysqli_query($config, $delete);
+    if ($run) {
+        $_SESSION['error_msg'] = "Category Has been Deleted Successful.";
+       echo "<script>window.location.href='categories.php'</script>";
+    } else {
+        echo "Failed Please Try Again";
+    }
+}
+
+?>
 
 <?php include "footer.php" ?>

@@ -74,7 +74,8 @@ if (!isset($_SESSION['user_data'])) {
             <!-- Main Content -->
             <div id="content">
                 <!-- Topbar -->
-                <nav class="navbar navbar-expand navbar-light bg-[#111827] topbar mb-4 static-top shadow-md">
+                <nav class="navbar navbar-expand navbar-light bg-[#111827] topbar mb-4 static-top shadow-md ">
+                     
                     <!-- Sidebar Toggle (Topbar) -->
                     <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3"> <i class="fa fa-bars"></i> </button>
                     <!-- Topbar Navbar -->
@@ -101,7 +102,8 @@ if (!isset($_SESSION['user_data'])) {
 
                                     <?php
                                     if (isset($_SESSION['user_data'])) {
-                                        echo $_SESSION['user_data']['1'];
+                                        echo ucwords($_SESSION['user_data']['1']);
+                                        
                                     }
 
 
