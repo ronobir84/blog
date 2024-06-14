@@ -23,13 +23,18 @@ if (!isset($_SESSION['user_data'])) {
     <title>Blog Admin - Dashboard</title>
     <!-- Custom fonts for this template-->
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
     <!-- Custom styles for this template-->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
     <link href="vendor/css/sb-admin-2.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+
 </head>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+
 
 <body id="page-top">
     <!-- Page Wrapper -->
@@ -44,18 +49,18 @@ if (!isset($_SESSION['user_data'])) {
             <div class="relative top-24 space-y-8">
 
                 <a class="" href="">
-                    <li class=" text-xl text-white font-semibold w-full h-12 duration-300 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white   px-4 py-[9px]  ">
+                    <li class=" text-xl text-white font-semibold w-full h-12 duration-300 hover:bg-purple-500 dark:hover:bg-purple-500 dark:hover:text-white   px-4 py-[9px]  ">
 
                         <span> Blogs</span>
                     </li>
                 </a>
                 <a class="" href="">
-                    <li class=" text-xl text-white font-semibold w-full h-12 duration-300 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white   px-4 py-[9px]  mt-7">
+                    <li class=" text-xl text-white font-semibold w-full h-12 duration-300 hover:bg-purple-500 dark:hover:bg-purple-500 dark:hover:text-white   px-4 py-[9px]  mt-7">
                         Users
                     </li>
                 </a>
                 <a class="" href="categories.php">
-                    <li class=" text-xl text-white font-semibold w-full h-12 duration-300 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white   px-4 py-[9px]  mt-7">
+                    <li class=" text-xl text-white font-semibold w-full h-12 duration-300 hover:bg-purple-500 dark:hover:bg-purple-500 dark:hover:text-white   px-4 py-[9px]  mt-7">
                         Categories
                     </li>
 
@@ -114,13 +119,13 @@ if (!isset($_SESSION['user_data'])) {
 
                                 <ul class="py-3  font-semibold text-lg text-white">
                                     <li>
-                                        <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Profile</a>
+                                        <a href="#" class="block px-4 py-2 hover:bg-purple-500 dark:hover:bg-purple-500 dark:hover:text-white">Profile</a>
                                     </li>
                                     <li>
-                                        <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Settings</a>
+                                        <a href="#" class="block px-4 py-2 hover:bg-purple-500 dark:hover:bg-purple-500 dark:hover:text-white">Settings</a>
                                     </li>
                                     <li>
-                                        <a href="logout.php" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Logout</a>
+                                        <a href="logout.php" class="block px-4 py-2 hover:bg-purple-500 dark:hover:bg-purple-500 dark:hover:text-white">Logout</a>
                                     </li>
                                 </ul>
 

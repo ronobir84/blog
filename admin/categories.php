@@ -39,16 +39,47 @@
             </div>
         </div>
         <div class="card-body">
-            <div class="table-responsive">
-                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+            <div class=" ">
+                <table class="table table-bordered" width="100%" cellspacing="0">
                     <thead>
                         <tr>
-                            <th>Sr.No</th>
-                            <th>Category Name</th>
-                            <th colspan="2">Action</th>
+                            <th><span class="text-xl text-purple-500 font-bold">Sr.No</span></th>
+                            <th><span class="text-xl text-purple-500 font-bold">Category Name</span></th>
+                            <th class="" colspan="2"><span class="text-xl text-purple-500 font-bold">Action</span></th>
                         </tr>
                     </thead>
                     <tbody>
+
+                        <!-- display in table -->
+
+                        <?php
+                        include "../config.php";
+                        $sql = "SELECT * FROM categories";
+                        $query = mysqli_query($config, $sql);
+                        $rows = mysqli_num_rows($query);
+                        // $count = 0;
+                        if ($rows) {
+                            while ($row = mysqli_fetch_array($query)) {
+                        ?>
+
+                                <tr class="">
+                                    <td class=" text-lg text-black font-semibold"><?php echo $row['cat_id'] ?></td>
+                                    <td class="text-lg text-black font-semibold"><?php echo $row['cat_name'] ?></td>
+                                    <td class="">
+                                        <a href="">
+                                            <i class="fa-solid fa-user-pen text-lg  w-12 h-12  p-2  duration-500 hover:bg-purple-500 border-2 border-purple-500 hover:text-white  text-purple-500 rounded-full"></i>
+                                        </a>
+                                        <a href="" class="ml-2 ">
+                                            <i class="fa-solid fa-trash text-lg  w-12 h-12  p-2  duration-500 hover:bg-red-700 border-2 border-red-700 hover:text-white  text-red-700 rounded-full"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+
+
+                        <?php
+                            }
+                        }
+                        ?>
                     </tbody>
                 </table>
             </div>

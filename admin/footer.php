@@ -1,7 +1,7 @@
 <!-- Footer -->
-<footer class="sticky-footer bg-white">
-    <div class="container my-auto">
-        <div class="copyright text-center my-auto"> <span>Copyright &copy; Blog <?php echo date("Y") ?></span> </div>
+<footer class="  bg-slate-100">
+    <div class="">
+        <div class=" w-full h-16 text-center text-xl items-center py-[18px] font-semibold "> <span>Copyright &copy; Blog <?php echo date("Y") ?></span> </div>
     </div>
 </footer>
 <!-- End of Footer -->
@@ -12,6 +12,7 @@
 <!-- Scroll to Top Button-->
 <a class="scroll-to-top rounded" href="#page-top"> <i class="fas fa-angle-up"></i> </a>
 <!-- Bootstrap core JavaScript-->
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 <script src="vendor/jquery/jquery.min.js"></script>
 <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -26,6 +27,10 @@
     CKEDITOR.replace('blog_body');
 </script>
 <script src="https:cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+<script src="sweetalert.js"></script>
+
+
+ 
 
 </body>
 
