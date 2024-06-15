@@ -85,7 +85,7 @@
                                     <td class=" ">
 
                                         <form action="" method="post" onsubmit="return confirm('Are You Sure You want to delete?')">
-                                            <a class="relative right-3" href="">
+                                            <a class="relative right-3" href="edit_cat.php?id=<?php echo $row['cat_id'] ?>">
                                                 <i class="fa-solid fa-user-pen text-lg  w-12 h-12  p-2  duration-500 hover:bg-purple-500 border-2 border-purple-500 hover:text-white  text-purple-500 rounded-full"></i>
                                             </a>
                                             <input name="catId" value="<?php echo $row['cat_id'] ?>" type="hidden">
@@ -128,7 +128,7 @@ if (isset($_POST['deleteCat'])) {
     $run = mysqli_query($config, $delete);
     if ($run) {
         $_SESSION['error_msg'] = "Category Has been Deleted Successful.";
-       echo "<script>window.location.href='categories.php'</script>";
+        echo "<script>window.location.href='categories.php'</script>";
     } else {
         echo "Failed Please Try Again";
     }
