@@ -40,7 +40,7 @@ if (!isset($_SESSION['user_data'])) {
     <!-- Page Wrapper -->
     <div id="wrapper">
         <!-- Sidebar -->
-        <ul class="   bg-[#111827] w-80 min-h-screen shadow-md" id="">
+        <ul class="   bg-[#111827] w-80 min-h-screen shadow-md " id="">
             <!-- Sidebar - Brand -->
             <a href=" " class="text-center">
                 <h1 class="text-4xl   font-bold   from-purple-400 via-pink-400 to-blue-400 bg-gradient-to-r bg-clip-text text-transparent uppercase relative top-3">Blog</h1>
