@@ -48,7 +48,7 @@ if (!isset($_SESSION['user_data'])) {
 
             <div class="relative top-24 space-y-8">
 
-                <a class="" href="">
+                <a class="" href="index.php">
                     <li class=" text-xl text-white font-semibold w-full h-12 duration-300 hover:bg-purple-500 dark:hover:bg-purple-500 dark:hover:text-white   px-4 py-[9px]  ">
 
                         <span> Blogs</span>
