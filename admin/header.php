@@ -43,24 +43,24 @@ if (!isset($_SESSION['user_data'])) {
         <ul class="   bg-[#111827] w-80 min-h-screen shadow-md " id="">
             <!-- Sidebar - Brand -->
             <a href=" " class="text-center">
-                <h1 class="text-4xl   font-bold   from-purple-400 via-pink-400 to-blue-400 bg-gradient-to-r bg-clip-text text-transparent uppercase relative top-3">Blog</h1>
+                <h1 class="text-4xl   font-bold   from-purple-400 via-pink-400 to-blue-400 bg-gradient-to-r bg-clip-text text-transparent uppercase relative right- top-3">Blog</h1>
             </a>
 
             <div class="relative top-24 space-y-8">
 
                 <a class="" href="index.php">
-                    <li class=" text-xl text-white font-semibold w-full h-12 duration-300 hover:bg-purple-500 dark:hover:bg-purple-500 dark:hover:text-white   px-4 py-[9px]  ">
+                    <li class=" text-xl text-white text-center font-semibold w-full h-12 duration-300 hover:bg-purple-500 dark:hover:bg-purple-500 dark:hover:text-white   px-4 py-[9px]  ">
 
                         <span> Blogs</span>
                     </li>
                 </a>
                 <a class="" href="">
-                    <li class=" text-xl text-white font-semibold w-full h-12 duration-300 hover:bg-purple-500 dark:hover:bg-purple-500 dark:hover:text-white   px-4 py-[9px]  mt-7">
+                    <li class=" text-xl text-white text-center t font-semibold w-full h-12 duration-300 hover:bg-purple-500 dark:hover:bg-purple-500 dark:hover:text-white   px-4 py-[9px]  mt-7">
                         Users
                     </li>
                 </a>
                 <a class="" href="categories.php">
-                    <li class=" text-xl text-white font-semibold w-full h-12 duration-300 hover:bg-purple-500 dark:hover:bg-purple-500 dark:hover:text-white   px-4 py-[9px]  mt-7">
+                    <li class=" text-xl text-white text-center font-semibold w-full h-12 duration-300 hover:bg-purple-500 dark:hover:bg-purple-500 dark:hover:text-white   px-4 py-[9px]  mt-7">
                         Categories
                     </li>
 
@@ -97,7 +97,7 @@ if (!isset($_SESSION['user_data'])) {
                         </li>
                         <li>
                             <!-- 1 -->
-                            <div class="flex gap-3 items-center">
+                            <div class="flex gap-3 items-center relative right-4">
                                 <h3 class="text-lg text-white font-semibold">
 
                                     <?php
@@ -117,7 +117,7 @@ if (!isset($_SESSION['user_data'])) {
                             </div>
 
                             <!-- Dropdown menu -->
-                            <div id="dropdownAvatar" class="z-10 hidden bg-[#111827]   divide-gray-100  shadow-md w-44 h-40">
+                            <div id="dropdownAvatar" class="z-10 hidden bg-[#111827] relative   divide-gray-100  shadow-md w-44 h-40">
 
                                 <ul class="py-3  font-semibold text-lg text-white">
                                     <li>

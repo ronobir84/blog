@@ -1,4 +1,3 @@
-
 <?php session_start();
 // ob_start();
 
@@ -41,7 +40,7 @@ if (isset($_POST['login'])) {
 ?>
 
 
-<div class="relative top-16">
+<div class="relative top-24">
     <div class="w-[40%] bg-gray-500  h-[650px]    mx-auto top-20">
 
         <div class="relative top-20">
@@ -80,4 +79,6 @@ if (isset($_POST['login'])) {
 </div>
 
 
-<?php include "./partials/footer.php"; ?>
+<div class="relative top-28">
+    <?php include "./partials/footer.php"; ?>
+</div>
