@@ -1,3 +1,4 @@
+
 <?php include "header.php";
 
 ?>
@@ -45,6 +46,7 @@
                     echo "<span class='text-xl font-semibold text-green-700 relative top-2 left-[20%]'>" . $sms . "</span>";
                     unset($_SESSION['sms']);
                 }
+                
 
 
 

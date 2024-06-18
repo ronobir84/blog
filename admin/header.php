@@ -9,7 +9,12 @@ if (!isset($_SESSION['user_data'])) {
     // header("location:http://localhost/Blog/Login.php");
 }
 
+ 
+ 
+
 ?>
+
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -48,7 +53,7 @@ if (!isset($_SESSION['user_data'])) {
 
             <div class="relative top-24 space-y-8">
 
-                <a class="" href="index.php">
+                <a class=" " href="index.php">
                     <li class=" text-xl text-white text-center font-semibold w-full h-12 duration-300 hover:bg-purple-500 dark:hover:bg-purple-500 dark:hover:text-white   px-4 py-[9px]  ">
 
                         <span> Blogs</span>
@@ -117,7 +122,7 @@ if (!isset($_SESSION['user_data'])) {
                             </div>
 
                             <!-- Dropdown menu -->
-                            <div id="dropdownAvatar" class="z-10 hidden bg-[#111827] relative   divide-gray-100  shadow-md w-44 h-40">
+                            <div id="dropdownAvatar" class="z-10 hidden bg-[#111827]  absolute    divide-gray-100  shadow-md w-44 h-40">
 
                                 <ul class="py-3  font-semibold text-lg text-white">
                                     <li>
