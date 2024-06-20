@@ -33,18 +33,18 @@
          </button>
      </a>
 
-<?php
+     <?php
 
-        
 
-?>
+
+        ?>
 
 
      <div class="w-[620px] h-[700px]  mx-auto relative top-20 overflow-hidden  bg-white p-10 mt-8  rounded-lg shadow-md  ">
 
          <h2 class="text-2xl text-center text-purple-500 font-bold ">Edit Blog</h2>
 
-         <form method="post" action="">
+         <form method="post" enctype="multipart/form-data" action="">
              <div class="">
                  <div class="relative top-2">
                      <!-- <label class="block text-lg font-semibold text-purple-500 absolute -mt-8" for="name">Title</label> -->
@@ -57,8 +57,8 @@
 
                  </div>
                  <div class=" relative top-2 flex items-center  justify-between ">
-                     <input class="block  text-sm text-gray-900 border-2 mt-4  border-gray-300 rounded-lg cursor-pointer  dark:placeholder-gray-400" id="file_input" name="edit_image" type="file">
-                     <img   class="w-14 h-14 rounded-full relative top-3" src="upload/<?php echo $result['blog_image'] ?>">
+                     <input class="block  text-sm text-gray-900 border-2 mt-4  border-gray-300 rounded-lg cursor-pointer  dark:placeholder-gray-400" id="file_input" name="blog_image" type="file">
+                     <img class="w-14 h-14 rounded-full relative top-3" src="upload/<?php echo $result['blog_image'] ?>">
 
                  </div>
                  <div class="relative top-5">
@@ -105,51 +105,49 @@
 
  <?php
 
- include "../config.php";
+    include "../config.php";
 
- if (isset($_POST['edit_blog'])) {
-     $title = mysqli_real_escape_string($config, $_POST['blog_title']);
-     $body = mysqli_real_escape_string($config, $_POST['blog_body']);
-     $fileName = $_FILES['edit_image']['name']??null;
-     $tmp_name = $_FILES['edit_image']['tmp_name'];
-     $size = $_FILES['edit_image']['size'];
-     $image_ext = pathinfo((string) $fileName, PATHINFO_EXTENSION);
-     $allow_type = ['jpg', 'png', 'jpeg'];
-     $destination = "upload/" . $fileName;
-     $category = mysqli_real_escape_string($config, $_POST['category']);
-     if (!empty($fileName)) {
+    if (isset($_POST['edit_blog'])) {
+        $title = mysqli_real_escape_string($config, $_POST['blog_title']);
+        $body = mysqli_real_escape_string($config, $_POST['blog_body']);
+        $fileName = $_FILES['blog_image']['name'] ?? null;
+        $tmp_name = $_FILES['blog_image']['tmp_name'];
+        $size = $_FILES['blog_image']['size'];
+        $image_ext = strtolower(pathinfo($fileName, PATHINFO_EXTENSION));
+        $allow_type = ['jpg', 'png', 'jpeg'];
+        $destination = "upload/" . $fileName;
+        $category = mysqli_real_escape_string($config, $_POST['category']);
+        if (!empty($fileName)) {
             if (in_array($image_ext, $allow_type)) {
                 if ($size <= 2000000) {
-               echo  $unlink = "upload/" . $result['edit_image'];
-                 unlink($unlink);
+                      $unlink = "upload/" . $result['blog_image'];
+                    unlink($unlink);
                     move_uploaded_file($tmp_name, $destination);
-                    $sql3 = "UPDATE blog SET blog_title='$title', blog_body = '$body', edit_image = '$filename', category='$category', author_id = '$author_id' WHERE blog_id = '$blog_id'";
+                    $sql3 = "UPDATE blog SET blog_title='$title', blog_body = '$body', blog_image = '$filename', category='$category', author_id = '$author_id' WHERE blog_id = '$blog_id'";
                     $query3 = mysqli_query($config, $sql3);
 
 
                     if ($query3) {
                         $_SESSION['blog_sms'] = "Blog Update  Successful.";
                         header("Location:index.php");
-                    } 
-                    else {
+                    } else {
 
                         $_SESSION['blog_msg'] = "Failed Please try again";
                         header("Location:index.php");
                     }
-                } 
-                else {
+                } else {
 
                     $_SESSION['blog_img'] = "image size should be 2mb";
                     header("Location:index.php");
                 }
-            } 
-            else {
+            } else {
 
                 $_SESSION['blog_file'] = "File type is not allow";
                 header("Location:index.php");
             }
-     }
-     else{
+        } 
+        
+        else {
             $sql3 = "UPDATE blog SET blog_title='$title', blog_body = '$body',    category='$category', author_id = '$author_id' WHERE blog_id = '$blog_id'";
             $query3 = mysqli_query($config, $sql3);
 
@@ -162,8 +160,8 @@
                 $_SESSION['blog_msg'] = "Failed Please try again";
                 header("Location:index.php");
             }
-     }
- }
+        }
+    }
 
     ?>
 

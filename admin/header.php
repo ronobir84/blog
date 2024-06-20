@@ -59,7 +59,7 @@ if (!isset($_SESSION['user_data'])) {
                         <span> Blogs</span>
                     </li>
                 </a>
-                <a class="" href="">
+                <a class="" href="users.php">
                     <li class=" text-xl text-white text-center t font-semibold w-full h-12 duration-300 hover:bg-purple-500 dark:hover:bg-purple-500 dark:hover:text-white   px-4 py-[9px]  mt-7">
                         Users
                     </li>
