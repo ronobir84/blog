@@ -57,7 +57,7 @@
 
      <div class="w-[620px] h-[700px]  mx-auto relative top-20 overflow-hidden  bg-white p-10 mt-10  rounded-lg shadow-md  ">
 
-         <h2 class="text-2xl text-center text-gray-800 font-bold mb-2">Publish Blog</h2>
+         <h2 class="text-2xl text-center text-purple-500 font-bold mb-2">Publish Blog</h2>
 
          <form method="post" enctype="multipart/form-data" action="">
              <div class="pt-1">

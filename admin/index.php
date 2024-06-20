@@ -5,6 +5,7 @@
       $user_id = $_SESSION['user_date']['0'];
    }
 
+
    ?>
  <!-- Begin Page Content -->
  <div class="container-fluid">
@@ -28,15 +29,36 @@
              </a>
           </div>
           <div>
-            <?php
+             <?php
 
-            if (isset($_SESSION['error_blog'])) {
-               $blog = $_SESSION['error_blog'];
-               echo "<span class='text-xl font-semibold text-green-700 relative top-2 left-[20%]'>" . $blog . "</span>";
-               unset($_SESSION['error_blog']);
-            }
-            
-            ?>
+               if (isset($_SESSION['error_blog'])) {
+                  $blog = $_SESSION['error_blog'];
+                  echo "<span class='text-xl font-semibold text-green-700 relative top-2 left-[20%]'>" . $blog . "</span>";
+                  unset($_SESSION['error_blog']);
+               }
+
+               if (isset($_SESSION['blog_sms'])) {
+                  $blog_error = $_SESSION['blog_sms'];
+                  echo "<span class='text-xl font-semibold text-green-700 relative left-[20%] top-2'>" . $blog_error . "</span>";
+                  unset($_SESSION['blog_sms']);
+               }
+               if (isset($_SESSION['blog_msg'])) {
+                  $blog_msg = $_SESSION['blog_msg'];
+                  echo "<span class='text-xl font-semibold text-red-700  relative left-[20%] top-2'>" . $blog_msg . "</span>";
+                  unset($_SESSION['blog_msg']);
+               }
+               if (isset($_SESSION['blog_file'])) {
+                  $blog_file = $_SESSION['blog_file'];
+                  echo "<span class='text-xl font-semibold text-red-700  relative left-[20%] top-2'>" . $blog_file . "</span>";
+                  unset($_SESSION['blog_file']);
+               }
+               if (isset($_SESSION['blog_img'])) {
+                  $blog_img = $_SESSION['blog_img'];
+                  echo "<span class='text-xl font-semibold text-red-700 relative left-[20%] top-2'>" . $blog_img . "</span>";
+                  unset($_SESSION['blog_img']);
+               }
+
+               ?>
           </div>
           <div>
              <form class="navbar-search">
@@ -73,8 +95,8 @@
 
                    <?php
                      include "../config.php";
-                     // $sql = "SELECT * FROM  blog LEFT JOIN categories ON blog.category = categories.cat_id LEFT JOIN user ON  blog.author_id = user.user_id WHERE user_id = '$user_id'";
-                     $sql = "SELECT * FROM  blog LEFT JOIN categories ON blog.category = categories.cat_id LEFT JOIN user ON  blog.author_id = user.user_id   ";
+
+                     $sql = "SELECT * FROM  blog LEFT JOIN categories ON blog.category = categories.cat_id LEFT JOIN user ON  blog.author_id = user.user_id   ORDER BY  blog.publish_date DESC";
 
                      // $sql = "SELECT * FROM blog "; 
                      $query = mysqli_query($config, $sql);
@@ -93,10 +115,11 @@
                             <td class=" ">
 
                                <form method="post" action="" onsubmit="return confirm('Are You Sure You want to delete?')">
-                                  <a class="relative right-3" href="">
+                                  <a class="relative right-3" href="edit_blog.php?id=<?php echo $result['blog_id'] ?>">
                                      <i class="fa-solid fa-user-pen text-lg  w-12 h-12  p-2  duration-500 hover:bg-purple-500 border-2 border-purple-500 hover:text-white  text-purple-500 rounded-full"></i>
                                   </a>
-                                  <input name="blogId" value="<?php echo $result ['blog_id']?>" type="hidden">
+                                  <input name="blogId" value="<?php echo $result['blog_id'] ?>" type="hidden">
+                                  <input name="blogImage" value="<?php echo $result['blog_image'] ?>" type="hidden">
 
                                   <button class="" name="deleteBlog" value="delete"> <i class="fa-solid fa-trash text-lg  w-12 h-12  p-2  duration-500 hover:bg-red-700 border-2 border-red-700 hover:text-white  text-red-700 rounded-full"></i></button>
 
@@ -142,19 +165,22 @@
  </div>
 
 
- <?php 
- if(isset($_POST['deleteBlog'])){
-    $id = $_POST['blogId'];
-    $delete = "DELETE FROM blog WHERE blog_id = '$id'";
-    $run = mysqli_query($config, $delete);
-    if($run){
-         $_SESSION['error_blog'] = "Blog Has been Deleted Successful."; 
+ <?php
+   if (isset($_POST['deleteBlog'])) {
+      $id = $_POST['blogId'];
+      $image = "upload/" . $_POST['blogImage'];
+
+      $delete = "DELETE FROM blog WHERE blog_id = '$id'";
+      $run = mysqli_query($config, $delete);
+      if ($run) {
+         unlink($image);
+         $_SESSION['error_blog'] = "Blog Has been Deleted Successful.";
          echo "<script>window.location.href='index.php'</script>";
-    }else{
+      } else {
          echo "Failed Please Try Again";
-    }
- }
- 
- ?>
+      }
+   }
+
+   ?>
 
  <?php include "footer.php" ?>

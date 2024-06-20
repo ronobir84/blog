@@ -62,11 +62,11 @@ if (isset($_POST['update_cat'])) {
     $sql2 = "UPDATE categories SET cat_name = '$cat_name' WHERE cat_id = '$id'";
     $query2 = mysqli_query($config, $sql2);
     if ($query2) {
-        // $msg= "Category Has been added Successful";
+         
         $_SESSION['sms'] = "Category Has been Updated Successful";
         header("location:categories.php");
     } else {
-        // $msg= "Failed Please try again";
+         
         $_SESSION['msg'] = "Failed Please try again";
         header("location:categories.php");
     }
