@@ -1,39 +1,47 @@
+<?php ob_start() ?>
 <?php include "header.php" ?>
 
 
 <?php
 
 if (isset($_POST['add_user'])) {
+    // echo json_encode($_POST, JSON_PRETTY_PRINT);
+    // exit();
     $username = mysqli_real_escape_string($config, $_POST['username']);
     $email = mysqli_real_escape_string($config, $_POST['email']);
-    $password = mysqli_real_escape_string($config, sha1($_POST['password']));
-    $c_pass = mysqli_real_escape_string($config, sha1($_POST['c_pass']));
+    $password = mysqli_real_escape_string($config, $_POST['password']);
+    $c_pass = mysqli_real_escape_string($config, $_POST['c_pass']);
     $role = mysqli_real_escape_string($config, $_POST['role']);
-    
+
     if (strlen($username) < 4 || strlen($username) > 100) {
         $error = "Username Must Be 4 Character";
         // $_SESSION['user_error'] = $error;
-    }
-    
-    elseif (strlen($password) < 4 ) {
+    } elseif (strlen($password) < 4) {
         $error = "Password Must Be 4 Character";
         // $_SESSION['user_error'] = $error;
-    } 
-    
-    elseif ($password != $c_pass) {
+    } elseif ($password != $c_pass) {
         $error = "Password Does Not Match";
         // $_SESSION['user_error'] = $error;
-    }
-    else {
+    } else {
         $sql = "SELECT * FROM user WHERE email = '$email'";
         $query = mysqli_query($config, $sql);
         $row = mysqli_num_rows($query);
         if ($row >= 1) {
             $error = "Email Already Exist";
             // $_SESSION['user_error'] = $error;
-        }
-        else {
-            echo "User Added Successful";
+        } else {
+            include "../config.php";
+            // echo "User Added Successful";
+        
+            $sql2 = "INSERT INTO `user`( `username`, `email`, `password`, `role`) VALUES ('$username','$email','$password',   '$role')";
+            $query2 = mysqli_query($config, $sql2);
+            if ($query2) {
+
+                $_SESSION['Succ_message'] = "User Has Been Added Successful";
+                header("Location:users.php");
+            } else {
+                $error = "Failed Please Try Again";
+            }
         }
     }
 }
@@ -50,8 +58,13 @@ if (isset($_POST['add_user'])) {
     //     echo "<span class='text-xl font-semibold text-red-700 absolute  right-[35%] mt-4'>$user_error</span>";
     //     unset($_SESSION['user_error']);
     // } 
-    if ( !empty($error)) {
+    if (!empty($error)) {
         echo "<span class='text-xl font-semibold text-red-700 absolute  right-[35%] mt-4'>$error</span>";
+    }
+    if (isset($_SESSION['Succ_message'])) {
+        $Succ_message = $_SESSION['Succ_message'];
+        echo "<span class='text-xl font-semibold text-green-700 absolute  right-[35%] mt-4'>$Succ_message</span>";
+        unset($_SESSION['Succ_message']);
     }
 
 
@@ -74,12 +87,12 @@ if (isset($_POST['add_user'])) {
             <div class="pt-2">
                 <div class="pt-3">
                     <!-- <label class="block text-lg font-semibold  text-purple-500 " for="name">User Name</label> -->
-                    <input name="username" placeholder="username" class="  text-black border-2 border-gray-300  rounded-md  py-2.5 w-full     focus:ring-1 focus:ring-purple-400 transition ease-in-out duration-150" type="text" required value="<?php (!empty($error))?  $username : '' ;?> " >
+                    <input name="username" placeholder="username" class=" text-black border-2 border-gray-300  rounded-md  py-2.5 w-full focus:ring-1 focus:ring-purple-400 transition ease-in-out duration-150" type="text" required value="<?php (!empty($error)) ? $username : ''; ?>">
 
                 </div>
                 <div class=" pt-3">
                     <!-- <label class="block text-lg font-semibold  text-purple-500 " for="name">Email</label> -->
-                    <input name="email" placeholder="Email" class="  text-black border-2 border-gray-300 rounded-md   py-2.5 w-full  focus:ring-1 focus:ring-purple-400 transition ease-in-out duration-150" type="email" required value="<?php (!empty($error))?  $email : '' ;?> ">
+                    <input name="email" placeholder="Email" class="  text-black border-2 border-gray-300 rounded-md   py-2.5 w-full  focus:ring-1 focus:ring-purple-400 transition ease-in-out duration-150" type="email" required value="<?php (!empty($error)) ?  $email : ''; ?>">
 
                 </div>
                 <div class=" pt-3">

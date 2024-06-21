@@ -1,8 +1,8 @@
  <?php include "header.php" ?>
  <?php
    global $user_id;
-   if (isset($_SESSION['user_date'])) {
-      $user_id = $_SESSION['user_date']['0'];
+   if (isset($_SESSION['user_data'])) {
+      $user_id = $_SESSION['user_data']['0'];
    }
 
 
@@ -96,7 +96,7 @@
                    <?php
                      include "../config.php";
 
-                     $sql = "SELECT * FROM  blog LEFT JOIN categories ON blog.category = categories.cat_id LEFT JOIN user ON  blog.author_id = user.user_id   ORDER BY  blog.publish_date DESC";
+                     $sql = "SELECT * FROM  blog LEFT JOIN categories ON blog.category = categories.cat_id LEFT JOIN user ON  blog.author_id = user.user_id WHERE user_id = '$user_id'   ORDER BY  blog.publish_date DESC";
 
                      // $sql = "SELECT * FROM blog "; 
                      $query = mysqli_query($config, $sql);

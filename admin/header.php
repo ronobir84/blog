@@ -2,15 +2,11 @@
 
 <?php
 include "../config.php";
-
-
 if (!isset($_SESSION['user_data'])) {
     echo "<script>window.location.href='http://localhost/Blog/Login.php'</script>";
     // header("location:http://localhost/Blog/Login.php");
 }
 
- 
- 
 
 ?>
 
@@ -59,17 +55,31 @@ if (!isset($_SESSION['user_data'])) {
                         <span> Blogs</span>
                     </li>
                 </a>
-                <a class="" href="users.php">
-                    <li class=" text-xl text-white text-center t font-semibold w-full h-12 duration-300 hover:bg-purple-500 dark:hover:bg-purple-500 dark:hover:text-white   px-4 py-[9px]  mt-7">
-                        Users
-                    </li>
-                </a>
-                <a class="" href="categories.php">
-                    <li class=" text-xl text-white text-center font-semibold w-full h-12 duration-300 hover:bg-purple-500 dark:hover:bg-purple-500 dark:hover:text-white   px-4 py-[9px]  mt-7">
-                        Categories
-                    </li>
+                <?php
+                global $admin;
+                if (isset($_SESSION['user_data'])) {
+                    $admin = $_SESSION['user_data']['2'];
+                }
+                if ($admin == 1) {
 
-                </a>
+
+                ?>
+
+                    <a class="" href="users.php">
+                        <li class=" text-xl text-white text-center t font-semibold w-full h-12 duration-300 hover:bg-purple-500 dark:hover:bg-purple-500 dark:hover:text-white   px-4 py-[9px]  mt-7">
+                            Users
+                        </li>
+                    </a>
+                    <a class="" href="categories.php">
+                        <li class=" text-xl text-white text-center font-semibold w-full h-12 duration-300 hover:bg-purple-500 dark:hover:bg-purple-500 dark:hover:text-white   px-4 py-[9px]  mt-7">
+                            Categories
+                        </li>
+
+                    </a>
+
+
+
+                <?php } ?>
 
             </div>
         </ul>
@@ -80,7 +90,7 @@ if (!isset($_SESSION['user_data'])) {
             <div id="content">
                 <!-- Topbar -->
                 <nav class="navbar navbar-expand navbar-light bg-[#111827] topbar mb-4 static-top shadow-md ">
-                     
+
                     <!-- Sidebar Toggle (Topbar) -->
                     <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3"> <i class="fa fa-bars"></i> </button>
                     <!-- Topbar Navbar -->
@@ -108,7 +118,6 @@ if (!isset($_SESSION['user_data'])) {
                                     <?php
                                     if (isset($_SESSION['user_data'])) {
                                         echo ucwords($_SESSION['user_data']['1']);
-                                        
                                     }
 
 

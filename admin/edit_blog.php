@@ -11,6 +11,9 @@
     $sql = "SELECT * FROM categories";
     $query = mysqli_query($config, $sql);
     $blog_id = $_GET['id'];
+    if (empty($blog_id)) {
+     header("Location: index.php");
+    }
 
     $sql2 = "SELECT * FROM  blog LEFT JOIN categories ON blog.category = categories.cat_id LEFT JOIN user ON  blog.author_id = user.user_id  WHERE blog_id = '$blog_id'";
     $query2 = mysqli_query($config, $sql2);
@@ -116,7 +119,7 @@
         $image_ext = strtolower(pathinfo($fileName, PATHINFO_EXTENSION));
         $allow_type = ['jpg', 'png', 'jpeg'];
         $destination = "upload/" . $fileName;
-        $category = mysqli_real_escape_string($config, $_POST['category']);
+        $category = mysqli_real_escape_string($config, $_POST['category']); 
         if (!empty($fileName)) {
             if (in_array($image_ext, $allow_type)) {
                 if ($size <= 2000000) {

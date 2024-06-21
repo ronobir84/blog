@@ -1,6 +1,8 @@
-
+<?php ob_start()?>
 <?php include "header.php";
-
+if ($admin!= 1) {
+    header("Location: index.php");
+}
 ?>
 <!-- Begin Page Content -->
 <div class="container-fluid">

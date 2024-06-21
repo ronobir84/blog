@@ -2,17 +2,11 @@
 
 $host = "localhost";
 $user = "root";
-$password = "";
+$db_password = "";
 $dbName = "blog_web";
 
-$config = new mysqli($host, $user, $password, $dbName);
+$config = new mysqli($host, $user, $db_password, $dbName);
 
 if (!$config) {
     die("connection is undefined" . mysqli_connect_errno());
-} 
-
-
-
-
-
-?>
+}

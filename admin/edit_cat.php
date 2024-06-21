@@ -1,12 +1,13 @@
 <?php ob_start() ?>
 <?php include "header.php" ?>
 
-
-
 <?php
 include "../config.php";
 
 $id = $_GET['id'];
+if (empty($id)) {
+    header("Location: categories.php");
+}
 $sql = "SELECT * FROM categories WHERE cat_id='$id'";
 $query = mysqli_query($config, $sql);
 $row = mysqli_fetch_assoc($query);

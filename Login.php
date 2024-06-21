@@ -19,8 +19,8 @@ include "config.php";
 
 if (isset($_POST['login'])) {
     $email = mysqli_real_escape_string($config, $_POST['email']);
-    $password = mysqli_real_escape_string($config, sha1($_POST['password']));
-    $sql = "SELECT * FROM user WHERE email='{$email}' AND password='{$password}'";
+    $password = mysqli_real_escape_string($config, $_POST['password']);
+    $sql = "SELECT * FROM user WHERE email='$email' AND password='$password'";
     $query = mysqli_query($config, $sql);
     $date = mysqli_num_rows($query);
     if ($date) {
