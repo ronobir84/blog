@@ -29,7 +29,9 @@ $row = mysqli_num_rows($run);
                     <div class="max-w-5xl  h-[760px]   bg-[#FFFFFF] shadow-xl mt-10  transition ease-in-out delay-150 hover:-translate-y-3 hover:scale-100 duration-500">
                         <div>
                             <?php $image =  $result['blog_image'] ?>
-                            <img src="admin/upload/<?php echo $image ?>" alt="">
+                            <a href="single_post.php?id=<?php echo $result["blog_id"] ?>">
+                                <img src="admin/upload/<?php echo $image ?>" alt="">
+                            </a>
                         </div>
                         <div class="px-14">
                             <div class="relative top-4">
@@ -42,7 +44,7 @@ $row = mysqli_num_rows($run);
                                         <p class="text-lg text-gray-600  font-semibold">Category : <?php echo $result['cat_name'] ?></p>
                                     </div>
                                 </div>
-                                <a class="" href="">
+                                <a class="" href="single_post.php?id=<?php echo $result["blog_id"] ?>">
                                     <span class="text-3xl text-black font-bold relative hover:underline duration-500 top-2"> <?php echo ucwords($result["blog_title"]) ?> </span>
                                 </a>
                             </div>

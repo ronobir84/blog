@@ -1,0 +1,211 @@
+ body {
+        font-family: "Nunito Sans", sans-serif;
+        margin: auto;
+    }
+
+    .min-div-1 {
+        width: 100%;
+        height: 350px;
+        background-color: black;
+
+    }
+
+    .image-1 {
+        width: 200px;
+        border: 4px solid #FFFFFF;
+    }
+
+    .min-div-2 {
+
+        height: 85px;
+        background-color: #FFFFFF;
+        box-shadow: 5px 5px 5px 5px gainsboro;
+        margin-top: 30px;
+        margin-left: 70px;
+        margin-right: 70px;
+
+    }
+
+
+    .min-div-3 {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        padding-left: 50px;
+        padding-right: 50px;
+        padding-top: 8px;
+    }
+
+    .h3-min {
+        font-size: 20px;
+        font-weight: 600;
+        color: black;
+    }
+
+    .min-h1 {
+        color: #FFFFFF;
+        position: absolute;
+        font-size: 50px;
+        top: 8%;
+        left: 25%;
+        font-family: "Noto Serif", serif;
+        font-weight: 700;
+    }
+
+    .min-h3 {
+        color: #FFFFFF;
+        position: absolute;
+        top: 22%;
+        left: 40%;
+        font-weight: 600;
+    }
+
+    .a-1 {
+        text-decoration: none;
+    }
+
+    .title-text {
+        color: black;
+        font-weight: 600;
+    }
+
+    .min-card {
+        width: 62rem;
+         
+         
+        background-color: #FFFFFF;
+        box-shadow: 5px 5px 5px 5px gainsboro;
+
+    }
+
+    .min-card-2 {
+        width: 470px;
+        height: 10rem;
+        border: 4px solid black;
+    }
+
+    .card-div-flex {
+        display: flex;
+        justify-content: space-between;
+        padding-left: 70px;
+        padding-right: 70px;
+
+    }
+
+    .min-card-con {
+        position: relative;
+        top: 60px;
+    }
+
+    .min-card-img {
+        width: 62rem;
+    }
+
+    .h1-title {
+        color: black;
+        font-weight: 700;
+
+    }
+
+    .icon-button {
+        padding: 15px 22px 15px 22px;
+        font-size: 18px;
+        color: #1F2937;
+        border: 2px solid gray;
+        background-color: #E5E7EB;
+        border-radius: 9999px;
+
+    }
+
+    .icon {
+        padding-right: 4px;
+    }
+
+    .icon-min-flex {
+        display: flex;
+        justify-content: space-between;
+        padding-top: 12px;
+        padding-bottom: 12px;
+         
+    }
+
+    
+
+    .style-space{
+        margin-right: 3.4rem;
+        margin-left: 3.4rem;
+
+    }
+    .second-item-2{
+         position: relative;
+         top: 20px;
+        margin-right: 3.4rem;
+        margin-left: 3.4rem;
+    }
+    .second-h2-title{
+        font-weight: 700;
+        color: rgb(63, 63, 63);
+        
+    }
+
+    /* home page button */
+    .tooltip {
+        position: relative;
+        display: inline-block;
+        cursor: pointer;
+    }
+
+    .tooltip button {
+        background-color: #1F2937;
+        color: #fff;
+        border: none;
+        position: relative;
+        width: 40px;
+        height: 40px;
+        left: 70px;
+        bottom: 24px;
+        border-radius: 100%;
+
+
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s, transform 0.2s ease-out;
+    }
+
+    .tooltip button:hover {
+
+        transform: scale(1.05);
+    }
+
+    .tooltip:hover .tooltiptext {
+        visibility: visible;
+        opacity: 1;
+    }
+
+    .tooltiptext {
+        visibility: hidden;
+        width: 160px;
+        background-color: #1F2937;
+        color: #fff;
+        text-align: center;
+        border-radius: 10px;
+        padding: 5px;
+        position: absolute;
+        z-index: 1;
+        bottom: 190%;
+
+        /* margin-left: -80px; */
+        opacity: 0;
+        transition: opacity 0.3s;
+    }
+
+    .tooltiptext::after {
+        content: "";
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        margin-left: -5px;
+        border-width: 5px;
+        border-style: solid;
+        border-color: #333 transparent transparent transparent;
+    }
