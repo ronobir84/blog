@@ -8,6 +8,8 @@ if (!isset($_SESSION['user_data'])) {
 }
 
 
+
+
 ?>
 
 
@@ -25,7 +27,7 @@ if (!isset($_SESSION['user_data'])) {
     <!-- Custom fonts for this template-->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
-    
+
     <!-- Custom styles for this template-->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
     <link href="vendor/css/sb-admin-2.css" rel="stylesheet">
@@ -48,7 +50,7 @@ if (!isset($_SESSION['user_data'])) {
     <!-- Page Wrapper -->
     <div id="wrapper">
         <!-- Sidebar -->
-        <ul class="   bg-[#111827] w-80 min-h-screen shadow-md " id="">
+        <ul class="   bg-[#FFFFFF] w-80 min-h-screen shadow-md " id="">
             <!-- Sidebar - Brand -->
             <a href=" " class="text-center">
                 <h1 class="text-4xl   font-bold   from-purple-400 via-pink-400 to-blue-400 bg-gradient-to-r bg-clip-text text-transparent uppercase relative right- top-3">Blog</h1>
@@ -57,7 +59,7 @@ if (!isset($_SESSION['user_data'])) {
             <div class="relative top-24 space-y-8">
 
                 <a class=" " href="index.php">
-                    <li class=" text-xl text-white text-center font-semibold w-full h-12 duration-300 hover:bg-purple-500 dark:hover:bg-purple-500 dark:hover:text-white   px-4 py-[9px]  ">
+                    <li class=" text-xl text-black text-center font-semibold w-full h-12 duration-300 hover:bg-purple-500 dark:hover:bg-purple-500 dark:hover:text-white   px-4 py-[9px]  ">
 
                         <span> Blogs</span>
                     </li>
@@ -73,12 +75,12 @@ if (!isset($_SESSION['user_data'])) {
                 ?>
 
                     <a class="" href="users.php">
-                        <li class=" text-xl text-white text-center t font-semibold w-full h-12 duration-300 hover:bg-purple-500 dark:hover:bg-purple-500 dark:hover:text-white   px-4 py-[9px]  mt-7">
+                        <li class=" text-xl text-black text-center t font-semibold w-full h-12 duration-300   dark:hover:text-white hover:bg-purple-500 dark:hover:bg-purple-500   px-4 py-[9px]  mt-7">
                             Users
                         </li>
                     </a>
                     <a class="" href="categories.php">
-                        <li class=" text-xl text-white text-center font-semibold w-full h-12 duration-300 hover:bg-purple-500 dark:hover:bg-purple-500 dark:hover:text-white   px-4 py-[9px]  mt-7">
+                        <li class=" text-xl text-black text-center font-semibold w-full h-12 duration-300 hover:bg-purple-500 dark:hover:bg-purple-500 dark:hover:text-white   px-4 py-[9px]  mt-7">
                             Categories
                         </li>
 
@@ -96,7 +98,7 @@ if (!isset($_SESSION['user_data'])) {
             <!-- Main Content -->
             <div id="content">
                 <!-- Topbar -->
-                <nav class="navbar navbar-expand navbar-light bg-[#111827] topbar mb-4 static-top shadow-md ">
+                <nav class="navbar navbar-expand navbar-light bg-[#FFFFFF] topbar mb-4 static-top shadow-md ">
 
                     <!-- Sidebar Toggle (Topbar) -->
                     <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3"> <i class="fa fa-bars"></i> </button>
@@ -120,7 +122,7 @@ if (!isset($_SESSION['user_data'])) {
                         <li>
                             <!-- 1 -->
                             <div class="flex gap-3 items-center relative right-4">
-                                <h3 class="text-lg text-white font-semibold">
+                                <h3 class="text-lg text-black font-semibold">
 
                                     <?php
                                     if (isset($_SESSION['user_data'])) {
@@ -138,9 +140,10 @@ if (!isset($_SESSION['user_data'])) {
                             </div>
 
                             <!-- Dropdown menu -->
-                            <div id="dropdownAvatar" class="z-10 hidden bg-[#111827]  absolute    divide-gray-100  shadow-md w-44 h-40">
+                            <div id="dropdownAvatar" class="z-10 hidden bg-[#FFFFFF]  absolute    divide-gray-100  shadow-md w-44 h-40">
+                               
 
-                                <ul class="py-3  font-semibold text-lg text-white">
+                                <ul class="py-3  font-semibold text-lg text-black">
                                     <li>
                                         <a href="#" class="block px-4 py-2 hover:bg-purple-500 dark:hover:bg-purple-500 dark:hover:text-white">Profile</a>
                                     </li>

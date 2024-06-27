@@ -19,7 +19,7 @@
 
         height: 85px;
         background-color: #FFFFFF;
-        box-shadow: 5px 5px 5px 5px gainsboro;
+        box-shadow: 3px 3px 3px 3px gainsboro;
         margin-top: 30px;
         margin-left: 70px;
         margin-right: 70px;
@@ -74,15 +74,13 @@
          
          
         background-color: #FFFFFF;
-        box-shadow: 5px 5px 5px 5px gainsboro;
+        box-shadow: 3px 3px 3px 3px gainsboro;
+        
 
     }
 
-    .min-card-2 {
-        width: 470px;
-        height: 10rem;
-        border: 4px solid black;
-    }
+     
+     
 
     .card-div-flex {
         display: flex;
@@ -147,6 +145,11 @@
         color: rgb(63, 63, 63);
         
     }
+.username{
+    font-weight: 800;
+    font-size: 20px;
+    color: black;
+}
 
     /* home page button */
     .tooltip {

@@ -1,10 +1,15 @@
+<?php ob_start()?>
 <?php include "./partials/header.php" ?>
 
 <?php
 
 include "config.php";
+$id = $_GET['id'];
+if (empty($id)) {
+    header("Location:index.php");
+}
 
-$sql = "SELECT * FROM blog LEFT JOIN categories ON  blog.category = categories.cat_id LEFT JOIN user ON blog.author_id = user.user_id ORDER BY blog.publish_date DESC";
+$sql = "SELECT * FROM blog LEFT JOIN categories ON  blog.category = categories.cat_id LEFT JOIN user ON blog.author_id = user.user_id WHERE cat_id = '$id' ORDER BY blog.publish_date DESC";
 $run = mysqli_query($config, $sql);
 $row = mysqli_num_rows($run);
 

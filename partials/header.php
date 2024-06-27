@@ -1,3 +1,10 @@
+ <?php
+    include "config.php";
+    $select = "SELECT * FROM  categories";
+    $query = mysqli_query($config, $select);
+    $rows = mysqli_num_rows($query)
+
+    ?>
  <!DOCTYPE html>
  <html lang="en">
 
@@ -11,18 +18,41 @@
      <link rel="preconnect" href="https://fonts.googleapis.com">
      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
      <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap" rel="stylesheet">
+     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Playwrite+AU+VIC:wght@100..400&family=Playwrite+NZ:wght@100..400&display=swap" rel="stylesheet">
+
  </head>
 
  <style>
      body {
          font-family: "Nunito Sans", sans-serif;
      }
+
+     .min-card-img {
+         width: 62rem;
+         height: 560px;
+     }
+
+     .font {
+         font-family: "Noto Serif", serif;
+     }
+
+     .cat_font {
+         font-family: "Noto Serif", serif;
+     }
  </style>
 
  <body>
+     <div class="w-full h-80 bg-black ">
+         <div class="">
 
-     <nav class="  w-full h-[85px] border-gray-200 dark:bg-gray-900 fixed z-10  shadow-md ">
-         <div class="flex flex-wrap justify-between py-5 px-[70px]">
+             <h1 class="text-5xl font-bold text-white font text-center relative top-20">WEB DEVELOPMENT HANDBOOK</h1>
+             <h3 class="text-xl font-semibold text-white relative top-24 text-center">Development is fun in a funny way</h3>
+
+         </div>
+     </div>
+
+     <nav class="  w-full h-[85px] border-gray-200  bg-[#FFFFFF]  z-10  shadow-md ">
+         <div class="flex flex-wrap justify-between py-5 px-[70px] ">
              <div class="flex gap-14">
                  <a href=" " class="flex items-center">
                      <h1 class="text-4xl   font-bold   from-purple-400 via-pink-400 to-blue-400 bg-gradient-to-r bg-clip-text text-transparent uppercase relative bottom-1">Blog</h1>
@@ -48,10 +78,19 @@
                                      </button>
 
                                      <!-- Dropdown menu -->
-                                     <div class="absolute left-0 w-[151px] h-28 mt-1 origin-top-left bg-[#111827] divide-y divide-gray-100 shadow opacity-0 invisible group-hover:opacity-100 group-hover:visible transition duration-700">
+                                     <div class="absolute left-0 w-[151px]   mt-1 origin-top-left bg-[#FFFFFF] divide-y divide-gray-100 shadow opacity-0 invisible group-hover:opacity-100 group-hover:visible transition duration-700 z-10">
                                          <div class="py-1">
-                                             <a href="#" class="block px-4 py-2 text-lg text-center font-semibold text-gray-100  hover:bg-purple-500">Politics</a>
-                                             <a href="#" class="block px-4 py-2 text-center text-lg font-semibold text-gray-100 hover:bg-purple-500">Sports</a>
+                                             <?php
+                                                if ($rows) {
+                                                    while ($result = mysqli_fetch_assoc($query)) {
+
+
+
+                                                ?>
+                                                     <a href="category.php?id=<?php echo $result["cat_id"] ?>" class="block px-4 py-2 text-lg text-center font-semibold text-black  hover:text-[#FFFFFF] hover:bg-[#111827]   "><?php echo $result["cat_name"] ?></a>
+
+                                             <?php }
+                                                } ?>
 
                                          </div>
                                      </div>
