@@ -11,14 +11,14 @@ $query2 = mysqli_query($config, $select2);
 
 
 <div>
-
+    <div class="relative top-7">
+        <h1 class="text-2xl font-bold text-black  cat_font uppercase">Category</h1>
+    </div>
 
     <div class="w-[470px]  border  relative top-10 pt-7 pb-9  shadow-xl  ">
 
         <div class="px-10">
-            <div>
-                <h1 class="text-2xl font-bold text-black pl-6 cat_font uppercase">Category</h1>
-            </div>
+
             <div>
 
                 <div class="grid grid-cols-2  gap-5 px-6 pt-4">
@@ -58,9 +58,9 @@ $query2 = mysqli_query($config, $select2);
 
 
             ?>
-                <div class="w-[470px] h-[130px] bg-white border relative top-16  shadow-xl transition ease-in-out delay-150 hover:-translate-y-2 hover:scale-100 duration-500">
+                <div class="w-[470px] h-[130px] bg-white border relative top-16  shadow-xl transition ease-in-out delay-150 hover:-translate-y-2 hover:scale-100 duration-500 mt-1">
 
-                    <div class="flex  gap-3 items-center px-2 relative top-6 mt-2">
+                    <div class="flex  gap-3 items-center px-2 relative top-6">
                         <div class="">
                             <?php $image =  $posts['blog_image'] ?>
                             <a class="" href="single_post.php?id=<?php echo $posts["blog_id"] ?>">

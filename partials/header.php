@@ -39,10 +39,14 @@
      .cat_font {
          font-family: "Noto Serif", serif;
      }
+
+     .active {
+         background-color: #1F2937;
+     }
  </style>
 
  <body>
-     <div class="w-full h-80 bg-black ">
+     <div class="w-full h-80 bg-black  ">
          <div class="">
 
              <h1 class="text-5xl font-bold text-white font text-center relative top-20">WEB DEVELOPMENT HANDBOOK</h1>

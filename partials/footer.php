@@ -1,4 +1,4 @@
- <footer class="  bg-slate-100 mt-16">
+ <footer class="  bg-slate-100 mt-28">
      <div class="w-full h-44">
          <div class="flex gap-4 justify-center pt-10">
              <a href="">
