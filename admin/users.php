@@ -1,14 +1,21 @@
-<?php ob_start()?>
+<?php ob_start() ?>
 
 <?php include "header.php";
 if ($admin != 1) {
     header("Location: index.php");
 }
+if (!isset($_GET["page"])) {
+    $page = 1;
+} else {
+    $page = $_GET["page"];
+}
+$limit = 3;
+$offset = ($page - 1) * $limit;
 
 ?>
 
 <?php
- 
+
 if (isset($_POST['deleteUser'])) {
     $id = $_POST['userId'];
     $delete = "DELETE FROM  user  WHERE user_id = '$id'";
@@ -16,10 +23,9 @@ if (isset($_POST['deleteUser'])) {
     if ($run) {
         $_SESSION['delete_msg'] = "User Has been Deleted Successful.";
         echo "<script>window.location.href='users.php'</script>";
-    }else{
-        $_SESSION ["try_msg"] ="Failed Please Try Again";
+    } else {
+        $_SESSION["try_msg"] = "Failed Please Try Again";
     }
-
 }
 
 ?>
@@ -97,56 +103,55 @@ if (isset($_POST['deleteUser'])) {
                     <tbody>
 
                         <?php
-                        $sql = "SELECT * FROM user";
+                        $sql = "SELECT * FROM user LIMIT $offset, $limit";
                         $query = mysqli_query($config, $sql);
                         $rows = mysqli_num_rows($query);
                         if ($rows) {
                             while ($row = mysqli_fetch_array($query)) {
 
-                                ?>
-                            <tr>
-                                <td class=" text-lg text-black font-semibold"><?php echo $row['user_id'] ?></td>
-                                <td class=" text-lg text-black font-semibold"><?php echo $row['username'] ?></td>
-                                <td class=" text-lg text-black font-semibold"><?php echo $row['email'] ?></td>
-                                <td class=" text-lg text-black font-semibold">
-                                    <?php
-                                    $role = $row['role'];
-                                    if($role == 1){
-                                        echo "<span class='text-green-700 font-semibold '>Admin</span>";
-                                        
-                                    }else{
-                                        echo "CO-Admin";
-                                    }
-
-                                
-                                ?>
-                                </td>
-                                <td class=" ">
-
-                                    <form action="" method="post" onsubmit="return confirm('Are You Sure You want to delete?')">
-                                        <a class="relative right-3" href="edit_user.php?id=<?php echo $row['user_id'] ?>">
-                                            <i class="fa-solid fa-user-pen text-lg  w-12 h-12  p-2  duration-500 hover:bg-purple-500 border-2 border-purple-500 hover:text-white  text-purple-500 rounded-full"></i>
-                                        </a>
-                                        <input name="userId" value="<?php echo $row['user_id'] ?>" type="hidden">
-                                         
-
-                                        <button class="" name="deleteUser" value="delete"> <i class="fa-solid fa-trash text-lg  w-12 h-12  p-2  duration-500 hover:bg-red-700 border-2 border-red-700 hover:text-white  text-red-700 rounded-full"></i></button>
-
-                                    </form>
-                                </td>
-                            </tr>
+                        ?>
+                                <tr>
+                                    <td class=" text-lg text-black font-semibold"><?php echo $row['user_id'] ?></td>
+                                    <td class=" text-lg text-black font-semibold"><?php echo $row['username'] ?></td>
+                                    <td class=" text-lg text-black font-semibold"><?php echo $row['email'] ?></td>
+                                    <td class=" text-lg text-black font-semibold">
+                                        <?php
+                                        $role = $row['role'];
+                                        if ($role == 1) {
+                                            echo "<span class='text-green-700 font-semibold '>Admin</span>";
+                                        } else {
+                                            echo "CO-Admin";
+                                        }
 
 
+                                        ?>
+                                    </td>
+                                    <td class=" ">
 
-                        <?php
+                                        <form action="" method="post" onsubmit="return confirm('Are You Sure You want to delete?')">
+                                            <a class="relative right-3" href="edit_user.php?id=<?php echo $row['user_id'] ?>">
+                                                <i class="fa-solid fa-user-pen text-lg  w-12 h-12  p-2  duration-500 hover:bg-purple-500 border-2 border-purple-500 hover:text-white  text-purple-500 rounded-full"></i>
+                                            </a>
+                                            <input name="userId" value="<?php echo $row['user_id'] ?>" type="hidden">
+
+
+                                            <button class="" name="deleteUser" value="delete"> <i class="fa-solid fa-trash text-lg  w-12 h-12  p-2  duration-500 hover:bg-red-700 border-2 border-red-700 hover:text-white  text-red-700 rounded-full"></i></button>
+
+                                        </form>
+                                    </td>
+                                </tr>
+
+
+
+                            <?php
                             }
-                        }else{
+                        } else {
                             ?>
                             <tr>
                                 <td colspan="6">No Record Found</td>
                             </tr>
 
-                            <?php
+                        <?php
                         }
 
                         ?>
@@ -159,6 +164,38 @@ if (isset($_POST['deleteUser'])) {
             </div>
         </div>
     </div>
+    <!-- pagination   -->
+    <?php
+    $pagination = "SELECT * FROM user";
+    $run_q = mysqli_query($config, $pagination);
+    $total_post = mysqli_num_rows($run_q);
+    $pages = ceil($total_post / $limit);
+    if ($total_post > $limit) {
+
+
+
+    ?>
+
+        <div class="relative top-10   text-center">
+            <div class="">
+                <?php
+                for ($i = 1; $i <= $pages; $i++) {
+
+                    if ($i == $page) {
+                        echo "<button class ='w-12 h-10 border-2  shadow text-lg font-semibold  bg-gray-800 text-white duration-500 ml-2'>$i</button>";
+                    } else {
+                        echo "<a href='users.php?page=$i'><button class ='w-12 h-10 border-2  shadow text-lg font-semibold text-black   hover:bg-gray-800 hover:text-white duration-500 ml-2'>$i</button></a>";
+                    }
+                }
+                ?>
+
+
+
+            </div>
+
+        </div>
+    <?php  } ?>
+    <!-- ------------------ -->
 </div>
 <!-- /.container-fluid -->
 </div>

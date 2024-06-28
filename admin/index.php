@@ -5,7 +5,17 @@
       $user_id = $_SESSION['user_data']['0'];
    }
 
+   // pagination
 
+
+   if (!isset($_GET["page"])) {
+      $page = 1;
+   } else {
+      $page = $_GET["page"];
+   }
+   $limit = 4;
+   $offset = ($page - 1) * $limit;
+   // -------------------
    ?>
  <!-- Begin Page Content -->
  <div class="container-fluid">
@@ -96,7 +106,9 @@
                    <?php
                      include "../config.php";
 
-                     $sql = "SELECT * FROM  blog LEFT JOIN categories ON blog.category = categories.cat_id LEFT JOIN user ON  blog.author_id = user.user_id WHERE user_id = '$user_id'   ORDER BY  blog.publish_date DESC";
+
+
+                     $sql = "SELECT * FROM  blog LEFT JOIN categories ON blog.category = categories.cat_id LEFT JOIN user ON  blog.author_id = user.user_id WHERE user_id = '$user_id'   ORDER BY  blog.publish_date DESC  LIMIT $offset , $limit";
 
                      // $sql = "SELECT * FROM blog "; 
                      $query = mysqli_query($config, $sql);
@@ -157,10 +169,46 @@
                      ?>
                 </tbody>
              </table>
+
+
           </div>
        </div>
     </div>
+    <!-- pagination   -->
+    <?php
+      $pagination = "SELECT * FROM blog WHERE author_id = '$user_id'";
+      $run_q = mysqli_query($config, $pagination);
+      $total_post = mysqli_num_rows($run_q);
+      $pages = ceil($total_post / $limit);
+      if ($total_post > $limit) {
+
+
+
+      ?>
+
+       <div class="relative top-10  text-center">
+          <div class="">
+             <?php
+               for ($i = 1; $i <= $pages; $i++) {
+
+                  if ($i == $page) {
+                     echo "<button class ='w-12 h-10 border-2  shadow text-lg font-semibold  bg-gray-800 text-white duration-500 ml-2'>$i</button>";
+                  } else {
+                     echo "<a href='index.php?page=$i '><button class ='w-12 h-10 border-2  shadow text-lg font-semibold text-black   hover:bg-gray-800 hover:text-white duration-500 ml-2'>$i</button></a>";
+                  }
+               }
+               ?>
+
+
+
+          </div>
+
+       </div>
+    <?php  } ?>
+    <!-- ------------------ -->
+
  </div>
+
  <!-- /.container-fluid -->
  </div>
 

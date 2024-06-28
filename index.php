@@ -96,9 +96,11 @@ $row = mysqli_num_rows($run);
             <?php
             $pagination = "SELECT * FROM blog";
             $run_q = mysqli_query($config, $pagination);
-            $total_past = mysqli_num_rows($run_q);
-
-            $pages = ceil($total_past / $limit);
+            $total_post = mysqli_num_rows($run_q);
+            $pages = ceil($total_post / $limit);
+            if ($total_post > $limit) {
+               
+           
 
             ?>
 
@@ -120,6 +122,7 @@ $row = mysqli_num_rows($run);
                 </div>
 
             </div>
+            <?php  }?>
             <!-- ------------------ -->
 
         </div>
