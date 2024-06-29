@@ -28,7 +28,7 @@ $row = mysqli_num_rows($run);
         <h2 class="text-2xl text-black font-bold cat_font uppercase relative top-14 ">ALL Posts</h2>
     </div>
     <!-- min body -->
-    <div class=" flex justify-between px-[70px]">
+    <div class=" lg:flex justify-between px-[70px]">
 
         <div>
 
@@ -39,7 +39,7 @@ $row = mysqli_num_rows($run);
 
 
 
-                    <div class="max-w-5xl  h-[760px]   bg-[#FFFFFF] shadow-xl mt-10  transition ease-in-out delay-150 hover:-translate-y-3 hover:scale-100 duration-500 relative top-7">
+                    <div class="lg:max-w-5xl  lg:h-[760px]   bg-[#FFFFFF] shadow-xl mt-10  transition ease-in-out delay-150 hover:-translate-y-3 hover:scale-100 duration-500 relative top-7">
                         <div>
                             <?php $image =  $result['blog_image'] ?>
                             <a href="single_post.php?id=<?php echo $result["blog_id"] ?>">
@@ -98,6 +98,7 @@ $row = mysqli_num_rows($run);
             $run_q = mysqli_query($config, $pagination);
             $total_post = mysqli_num_rows($run_q);
             $pages = ceil($total_post / $limit);
+            
             if ($total_post > $limit) {
                
            

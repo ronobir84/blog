@@ -10,9 +10,9 @@ $query2 = mysqli_query($config, $select2);
 
 
 
-<div>
+<div class=" ">
     <div class="relative top-7">
-        <h1 class="text-2xl font-bold text-black  cat_font uppercase">Category</h1>
+        <h1 class="text-2xl font-bold text-black  cat_font uppercase ">Category</h1>
     </div>
 
     <div class="w-[470px]  border  relative top-10 pt-7 pb-9  shadow-xl  ">

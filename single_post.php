@@ -159,7 +159,7 @@
                             <h2 class="second-h2">Category Name</h2>
                         </div>
                         <div class="grid-item">
-                            <a href="">
+                            <a href="category.php?id=<?php echo $post["cat_id"] ?>">
                                 <button class="class-php"><i class="fa-solid fa-hashtag"></i><?php echo $post["cat_name"] ?></button>
                             </a>
                         </div>

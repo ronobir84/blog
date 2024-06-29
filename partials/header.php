@@ -55,7 +55,7 @@
          </div>
      </div>
 
-     <nav class="  w-full h-[85px] border-gray-200  bg-[#FFFFFF]  z-10  shadow-md ">
+     <nav class="  w-full h-[85px] border-gray-200  bg-[#FFFFFF]  z-10  shadow-md  ">
          <div class="flex flex-wrap justify-between py-5 px-[70px] ">
              <div class="flex gap-14">
                  <a href=" " class="flex items-center">
