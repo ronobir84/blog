@@ -15,7 +15,7 @@ $query2 = mysqli_query($config, $select2);
         <h1 class="text-2xl font-bold text-black  cat_font uppercase ">Category</h1>
     </div>
 
-    <div class="w-[470px]  border  relative top-10 pt-7 pb-9  shadow-xl  ">
+    <div class="w-[470px]  border  relative top-10 pt-7 pb-9  shadow-md  ">
 
         <div class="px-10">
 
@@ -58,7 +58,7 @@ $query2 = mysqli_query($config, $select2);
 
 
             ?>
-                <div class="w-[470px] h-[130px] bg-white border relative top-16  shadow-xl transition ease-in-out delay-150 hover:-translate-y-2 hover:scale-100 duration-500 mt-1">
+                <div class="w-[470px] h-[130px] bg-white border relative top-16  shadow-md transition ease-in-out delay-150 hover:-translate-y-2 hover:scale-100 duration-500 mt-1">
 
                     <div class="flex  gap-3 items-center px-2 relative top-6">
                         <div class="">
@@ -84,3 +84,4 @@ $query2 = mysqli_query($config, $select2);
 
 
 </div>
+ 

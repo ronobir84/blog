@@ -3,8 +3,9 @@
 <?php
 
 include "config.php";
-// pagination
+$keyword = $_GET["keyword"];
  
+// pagination
 
 if (!isset($_GET["page"])) {
     $page = 1;
@@ -15,17 +16,17 @@ $limit = 4;
 $offset = ($page - 1) * $limit;
 // -------------------
 
-$sql = "SELECT * FROM blog LEFT JOIN categories ON  blog.category = categories.cat_id LEFT JOIN user ON blog.author_id = user.user_id ORDER BY blog.publish_date DESC  LIMIT $offset , $limit";
+$sql = "SELECT * FROM blog LEFT JOIN categories ON  blog.category = categories.cat_id LEFT JOIN user ON blog.author_id = user.user_id WHERE blog_title LIKE '%$keyword%' or blog_body LIKE '%$keyword%' ORDER BY blog.publish_date DESC  LIMIT $offset , $limit";
 $run = mysqli_query($config, $sql);
 $row = mysqli_num_rows($run);
 
 ?>
+ 
 
 
-
-<div c >
+<div class="">
     <div class="px-[70px]">
-        <h2 class="text-2xl text-black font-bold cat_font uppercase relative top-14 ">ALL Posts</h2>
+        <h2 class="text-2xl text-black font-bold cat_font uppercase relative top-14 ">Search Result : <span><?php echo $keyword?></span></h2>
     </div>
     <!-- min body -->
     <div class=" lg:flex justify-between px-[70px]">
@@ -39,7 +40,7 @@ $row = mysqli_num_rows($run);
 
 
 
-                    <div class="lg:max-w-5xl  lg:h-[760px]   bg-[#FFFFFF] shadow-md mt-10  transition ease-in-out delay-150 hover:-translate-y-3 hover:scale-100 duration-500 relative top-7">
+                    <div class="lg:max-w-5xl  lg:h-[760px]   bg-[#FFFFFF] shadow-xl mt-10  transition ease-in-out delay-150 hover:-translate-y-3 hover:scale-100 duration-500 relative top-7">
                         <div>
                             <?php $image =  $result['blog_image'] ?>
                             <a href="single_post.php?id=<?php echo $result["blog_id"] ?>">
@@ -91,39 +92,45 @@ $row = mysqli_num_rows($run);
                         </div>
                     </div>
             <?php  }
-            } ?>
+            }  else{
+                echo  "<img class=' shadow-md relative top-16' src='https://img.freepik.com/free-vector/404-error-with-landscape-concept-illustration_114360-7898.jpg' >";
+            }
+            
+            
+            
+            ?>
             <!-- pagination   -->
             <?php
-            $pagination = "SELECT * FROM blog";
+            $pagination = "SELECT * FROM blog WHERE blog_title LIKE '%$keyword%' OR blog_body LIKE '%$keyword%' ";
             $run_q = mysqli_query($config, $pagination);
             $total_post = mysqli_num_rows($run_q);
             $pages = ceil($total_post / $limit);
-            
+
             if ($total_post > $limit) {
-               
 
 
-            ?>
 
-            <div class="relative top-20 left-[28%] text-center">
-                <div class="">
-                    <?php
-                    for ($i = 1; $i <= $pages; $i++) { 
-                        
-                        if ($i == $page) {
-                            echo "<button class ='w-12 h-10 border-2  shadow text-lg font-semibold  bg-gray-800 text-white duration-500 ml-2'>$i</button>";
-                        }else{
-                            echo "<a href='index.php?page=$i '><button class ='w-12 h-10 border-2  shadow text-lg font-semibold text-black   hover:bg-gray-800 hover:text-white duration-500 ml-2'>$i</button></a>";
+            ?> 
+
+                <div class="relative top-24  text-center">
+                    <div class="">
+                        <?php
+                        for ($i = 1; $i <= $pages; $i++) {
+
+                            if ($i == $page) {
+                                echo "<button class ='w-12 h-10 border-2  shadow text-lg font-semibold  bg-gray-800 text-white duration-500 ml-2'>$i</button>";
+                            } else {
+                                echo "<a href='search.php? keyword=$keyword & page=$i '><button class ='w-12 h-10 border-2  shadow text-lg font-semibold text-black   hover:bg-gray-800 hover:text-white duration-500 ml-2'>$i</button></a>";
+                            }
                         }
-                    }
                         ?>
-                    
 
+
+
+                    </div>
 
                 </div>
-
-            </div>
-            <?php  }?>
+            <?php  } ?>
             <!-- ------------------ -->
 
         </div>
