@@ -13,6 +13,7 @@ $sql = "SELECT * FROM blog LEFT JOIN categories ON  blog.category = categories.c
 $run = mysqli_query($config, $sql);
 $row = mysqli_num_rows($run);
 
+
 ?>
 
 
