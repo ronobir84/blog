@@ -5,6 +5,7 @@ include "../config.php";
 if (!isset($_SESSION['user_data'])) {
     echo "<script>window.location.href='http://localhost/Blog/Login.php'</script>";
     // header("location:http://localhost/Blog/Login.php");
+    $page = substr($_SERVER['SCRIPT_NAME'], strrpos($_SERVER['SCRIPT_NAME'], "/") + 1);
 }
 
 
@@ -43,7 +44,9 @@ if (!isset($_SESSION['user_data'])) {
 <style>
     body {
         font-family: "Nunito Sans", sans-serif;
+        
     }
+     
 </style>
 
 <body id="page-top">
@@ -59,7 +62,7 @@ if (!isset($_SESSION['user_data'])) {
             <div class="relative top-24 space-y-8">
 
                 <a class=" " href="index.php">
-                    <li class=" text-xl text-black text-center font-semibold w-full h-12 duration-300 hover:bg-purple-500 dark:hover:bg-purple-500 dark:hover:text-white   px-4 py-[9px]  ">
+                    <li class=" text-xl text-black text-center font-semibold w-full h-12 duration-300 hover:bg-purple-500  dark:hover:text-white   px-4 py-[9px]  ">
 
                         <span> Blogs</span>
                     </li>
@@ -94,7 +97,7 @@ if (!isset($_SESSION['user_data'])) {
         </ul>
         <!-- End of Sidebar -->
         <!-- Content Wrapper -->
-        <div id="content-wrapper" class="d-flex flex-column">
+        <div id="content-wrapper" class="d-flex flex-column overflow-hidden">
             <!-- Main Content -->
             <div id="content">
                 <!-- Topbar -->

@@ -24,7 +24,7 @@
         $sms = $_SESSION['sms'];
         echo "<span class='text-xl font-semibold text-green-700 relative top-4 left-[25%]'>" . $sms . "</span>";
         unset($_SESSION['sms']);
-    }
+    } 
 
 
 

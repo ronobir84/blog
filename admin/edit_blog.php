@@ -11,8 +11,9 @@
     $sql = "SELECT * FROM categories";
     $query = mysqli_query($config, $sql);
     $blog_id = $_GET['id'];
+ 
     if (empty($blog_id)) {
-     header("Location: index.php");
+        header("Location: index.php");
     }
 
     $sql2 = "SELECT * FROM  blog LEFT JOIN categories ON blog.category = categories.cat_id LEFT JOIN user ON  blog.author_id = user.user_id  WHERE blog_id = '$blog_id'";
@@ -119,11 +120,11 @@
         $image_ext = strtolower(pathinfo($fileName, PATHINFO_EXTENSION));
         $allow_type = ['jpg', 'png', 'jpeg'];
         $destination = "upload/" . $fileName;
-        $category = mysqli_real_escape_string($config, $_POST['category']); 
+        $category = mysqli_real_escape_string($config, $_POST['category']);
         if (!empty($fileName)) {
             if (in_array($image_ext, $allow_type)) {
                 if ($size <= 2000000) {
-                      $unlink = "upload/" . $result['blog_image'];
+                    $unlink = "upload/" . $result['blog_image'];
                     unlink($unlink);
                     move_uploaded_file($tmp_name, $destination);
                     $sql3 = "UPDATE blog SET blog_title='$title', blog_body = '$body', blog_image = '$filename', category='$category', author_id = '$author_id' WHERE blog_id = '$blog_id'";
@@ -148,9 +149,7 @@
                 $_SESSION['blog_file'] = "File type is not allow";
                 header("Location:index.php");
             }
-        } 
-        
-        else {
+        } else {
             $sql3 = "UPDATE blog SET blog_title='$title', blog_body = '$body',    category='$category', author_id = '$author_id' WHERE blog_id = '$blog_id'";
             $query3 = mysqli_query($config, $sql3);
 

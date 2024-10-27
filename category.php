@@ -6,10 +6,10 @@
 include "config.php";
 $id = $_GET['id'];
 if (empty($id)) {
-    header("Location:index.php");
+    header(header: "Location:index.php");
 }
 
-$sql = "SELECT * FROM blog LEFT JOIN categories ON  blog.category = categories.cat_id LEFT JOIN user ON blog.author_id = user.user_id WHERE cat_id = '$id' ORDER BY blog.publish_date DESC";
+$sql = "SELECT * FROM blog LEFT JOIN categories ON  blog.category = categories.cat_id LEFT JOIN user ON blog.author_id = user.user_id WHERE cat_id = '$id' ORDER BY blog.publish_date DESC ";
 $run = mysqli_query($config, $sql);
 $row = mysqli_num_rows($run);
 
@@ -20,14 +20,15 @@ $row = mysqli_num_rows($run);
 
 <div class="relative top-">
 
-    <!-- min body -->
+    
     <div class=" flex justify-between px-[70px]">
-        <!-- <h2 class="text-3xl text-black font-bold absolute -top-12 ">Recent Post</h2> -->
+         
         <div>
 
             <?php
             if ($row) {
                 while ($result = mysqli_fetch_assoc($run)) {
+                      
             ?>
 
 
@@ -48,6 +49,7 @@ $row = mysqli_num_rows($run);
                                         <p class="text-lg text-gray-600  font-semibold"> Author : <?php echo ucwords($result['username']) ?></p>
                                         |
                                         <p class="text-lg text-gray-600  font-semibold">Category : <?php echo $result['cat_name'] ?></p>
+                                         
                                     </div>
                                 </div>
                                 <a class="" href="single_post.php?id=<?php echo $result["blog_id"] ?>">

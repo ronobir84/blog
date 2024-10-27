@@ -4,7 +4,7 @@
 
 include "config.php";
 // pagination
- 
+
 
 if (!isset($_GET["page"])) {
     $page = 1;
@@ -19,11 +19,15 @@ $sql = "SELECT * FROM blog LEFT JOIN categories ON  blog.category = categories.c
 $run = mysqli_query($config, $sql);
 $row = mysqli_num_rows($run);
 
+
+
+
+
 ?>
 
 
 
-<div c >
+<div c>
     <div class="px-[70px]">
         <h2 class="text-2xl text-black font-bold cat_font uppercase relative top-14 ">ALL Posts</h2>
     </div>
@@ -98,32 +102,32 @@ $row = mysqli_num_rows($run);
             $run_q = mysqli_query($config, $pagination);
             $total_post = mysqli_num_rows($run_q);
             $pages = ceil($total_post / $limit);
-            
+
             if ($total_post > $limit) {
-               
+
 
 
             ?>
 
-            <div class="relative top-20 left-[28%] text-center">
-                <div class="">
-                    <?php
-                    for ($i = 1; $i <= $pages; $i++) { 
-                        
-                        if ($i == $page) {
-                            echo "<button class ='w-12 h-10 border-2  shadow text-lg font-semibold  bg-gray-800 text-white duration-500 ml-2'>$i</button>";
-                        }else{
-                            echo "<a href='index.php?page=$i '><button class ='w-12 h-10 border-2  shadow text-lg font-semibold text-black   hover:bg-gray-800 hover:text-white duration-500 ml-2'>$i</button></a>";
-                        }
-                    }
-                        ?>
-                    
+                <div class="relative top-20 left-[28%] text-center">
+                    <div class="">
+                        <?php
+                        for ($i = 1; $i <= $pages; $i++) {
 
+                            if ($i == $page) {
+                                echo "<button class ='w-12 h-10 border-2  shadow text-lg font-semibold  bg-gray-800 text-white duration-500 ml-2'>$i</button>";
+                            } else {
+                                echo "<a href='index.php?page=$i '><button class ='w-12 h-10 border-2  shadow text-lg font-semibold text-black   hover:bg-gray-800 hover:text-white duration-500 ml-2'>$i</button></a>";
+                            }
+                        }
+                        ?>
+
+
+
+                    </div>
 
                 </div>
-
-            </div>
-            <?php  }?>
+            <?php  } ?>
             <!-- ------------------ -->
 
         </div>

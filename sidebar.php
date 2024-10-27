@@ -3,8 +3,11 @@ $select = "SELECT * FROM  categories";
 $query = mysqli_query($config, $select);
 $rows = mysqli_num_rows($query);
 
+
+$limit = 4;
+
 // resent post 
-$select2 = "SELECT * FROM  blog  ORDER BY publish_date DESC LIMIT 4";
+$select2 = "SELECT *  FROM  blog  ORDER BY publish_date DESC LIMIT 4";
 $query2 = mysqli_query($config, $select2);
 ?>
 
@@ -15,23 +18,52 @@ $query2 = mysqli_query($config, $select2);
         <h1 class="text-2xl font-bold text-black  cat_font uppercase ">Category</h1>
     </div>
 
+
     <div class="w-[470px]  border  relative top-10 pt-7 pb-9  shadow-md  ">
 
-        <div class="px-10">
+        <div class="px-4">
 
             <div>
 
-                <div class="grid grid-cols-2  gap-5 px-6 pt-4">
+                <div class="grid grid-cols-2  gap-5  pt-4">
                     <?php
                     if ($rows) {
                         while ($result = mysqli_fetch_assoc($query)) {
 
 
+
+
                     ?>
                             <div class="">
 
-                                <a href="category.php?id=<?php echo $result["cat_id"] ?>" class=" px-4 py-[5px]  relative  bg-[#DBEAFE] font-bold text-lg text-[#1E40AF]" href="">
-                                    <i class="fa-solid fa-hashtag"></i><?php echo $result["cat_name"] ?>
+
+
+
+
+                                <a href="category.php?id=<?php echo $result["cat_id"] ?>" class="flex  py-[5px]  relative  " href="">
+                                    <button class="bg-[#DBEAFE] font-bold text-lg text-[#1E40AF] flex items-center gap-2 px-5 py-[5px]">
+                                        <i class="fa-solid fa-hashtag"></i>
+                                        <h2><?php echo $result["cat_name"] ?> </h2>
+                                        <?php
+                                        $id = $result['cat_id'];
+                                        $CountCategory = "SELECT COUNT(blog_id) AS blog_count FROM blog LEFT JOIN categories ON blog.category = categories.cat_id WHERE blog.category = '$id' ";
+                                        $categoryResult = $config->query($CountCategory);
+                                        if ($categoryResult) {
+                                             while ($all_count = $categoryResult->fetch_assoc()) {
+                                                
+                                                
+                                           
+                                         
+                                        
+                                        
+                                        ?>
+                                        <h2>(<?php echo $all_count['blog_count']?>)</h2>
+                                        <?php   }
+                                        } else {
+                                            echo "";
+                                        }?>
+                                    </button>
+
                                 </a>
 
                             </div>
@@ -58,6 +90,7 @@ $query2 = mysqli_query($config, $select2);
 
 
             ?>
+
                 <div class="w-[470px] h-[130px] bg-white border relative top-16  shadow-md transition ease-in-out delay-150 hover:-translate-y-2 hover:scale-100 duration-500 mt-1">
 
                     <div class="flex  gap-3 items-center px-2 relative top-6">
@@ -84,4 +117,3 @@ $query2 = mysqli_query($config, $select2);
 
 
 </div>
- 

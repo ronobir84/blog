@@ -117,7 +117,7 @@ if (isset($_POST['deleteUser'])) {
                                     <td class=" text-lg text-black font-semibold">
                                         <?php
                                         $role = $row['role'];
-                                        if ($role == 1) {
+                                        if ($role == 1) { 
                                             echo "<span class='text-green-700 font-semibold '>Admin</span>";
                                         } else {
                                             echo "CO-Admin";
@@ -148,7 +148,7 @@ if (isset($_POST['deleteUser'])) {
                         } else {
                             ?>
                             <tr>
-                                <td colspan="6">No Record Found</td>
+                                <td colspan="">No Record Found</td>
                             </tr>
 
                         <?php
@@ -166,10 +166,11 @@ if (isset($_POST['deleteUser'])) {
     </div>
     <!-- pagination   -->
     <?php
-    $pagination = "SELECT * FROM user";
-    $run_q = mysqli_query($config, $pagination);
-    $total_post = mysqli_num_rows($run_q);
-    $pages = ceil($total_post / $limit);
+$pagination = "SELECT * FROM user";
+$run_q = mysqli_query($config, $pagination);
+
+$total_post = mysqli_num_rows($run_q);
+$pages = ceil($total_post / $limit);
     if ($total_post > $limit) {
 
 

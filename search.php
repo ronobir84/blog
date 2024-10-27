@@ -4,7 +4,7 @@
 
 include "config.php";
 $keyword = $_GET["keyword"];
- 
+
 // pagination
 
 if (!isset($_GET["page"])) {
